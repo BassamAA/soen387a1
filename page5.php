@@ -1,0 +1,1 @@
+<!-- php file to create new administrator -->
