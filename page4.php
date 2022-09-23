@@ -46,7 +46,7 @@
 		         } // end if
 				else
 				{
-				print("Course was successfully created");
+				print("You were succesfully registered");
 				}
 		         mysqli_close( $database );
 		      ?><!-- end PHP script -->
