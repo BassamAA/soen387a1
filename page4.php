@@ -17,7 +17,6 @@
 		      </style>
 		   </head>
 		   <body>
-			<h1> Ok </h1>
 		      <?php
 		         extract( $_POST );
 		
@@ -32,13 +31,13 @@
 		            "root", "" ) ) )                      
 		            die( "Could not connect to database </body></html>" );
 		   
-		         // open Products database
+		         // open Student database
 		         if ( !mysqli_select_db( $database ,"University" ) )
 		            die( "Could not open University database </body></html>" );
 		     
 		
 		
-		         // query Products database
+		         // query Student database
 		         if ( !( $result = mysqli_query( $database,$query) ) ) 
 		         {
 		            print( "Could not execute query! <br />" );
