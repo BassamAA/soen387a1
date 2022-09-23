@@ -27,12 +27,12 @@
 				 
 				 
 		         // Connect to MySQL
-		         if ( !( $database = mysqli_connect( "localhost",
+		         if ( !( $database = mysqli_connect( "http://localhost/phpmyadmin/index.php?route=/",
 		            "root", "" ) ) )                      
 		            die( "Could not connect to database </body></html>" );
 		   
 		         // open Student database
-		         if ( !mysqli_select_db( $database ,"university" ) )
+		         if ( !mysqli_select_db( $database ,"http://localhost/phpmyadmin/index.php?route=/database/structure&db=University" ) )
 		            die( "Could not open University database </body></html>" );
 		     
 		
