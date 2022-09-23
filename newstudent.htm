@@ -16,12 +16,12 @@
                    border: 4px solid gray;
                    border-radius: 15px;
                    box-shadow: 5px 5px;
+                   
                }
                .welcome{
                    line-height: 30px;
                    font-family: Verdana;
                    font-size: 12px;
-                   top: 15%;
                }
                .form{
                    line-height: 10px;
@@ -64,7 +64,11 @@
                  <input name = "Email" type = "text" value = "xxx" size = "40"/><br /></p>
                  <p>
                 Phone Number :
+<<<<<<< Updated upstream
                 <input name = "PhoneNumber" type = "int" value = "0" size = "14"/><br /></p>
+=======
+                <input name = "PhoneNumber" type = "int" value = "xxx-xxx-xxx" size = "40"/><br /></p>
+>>>>>>> Stashed changes
                 <p>
                 Date of Birth :
                  <input name = "DateofBirth" type = "date" value = "" size = "10"/><br /></p>
@@ -75,7 +79,13 @@
             
             <div class="welcome">
                <h2>Already have a Student Account?</h2>
-               <input class="button" type="submit" value="Sign In">
+               <!-- <input class="button" type="submit" value="Sign In"> -->
+               <button class="button" type="submit" name="role" value="Sign In" onclick="submit()">Sign In</button> 
+               <script>
+                function submit() {
+                    window.location.href = "student.htm";
+                }
+               </script>
            </div>
          </div>
       
