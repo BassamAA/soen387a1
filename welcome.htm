@@ -1,0 +1,71 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    
+    
+    <style>
+        
+        h1   {color: black; text-align: center; font-family: Verdana; font-size: 30px;}
+        h2   {color: black; text-align: center; font-family: Verdana; font-size: 20px;}
+        .box {
+            background-color: gainsboro;
+            position:relative;
+            top: 50%;
+            transform: translate(0, -50%);
+            margin: auto;
+            align-items: center;
+            width: 350px;
+            height: 300px;
+            padding: 10px;
+            border: 4px solid gray;
+            border-radius: 15px;
+            box-shadow: 5px 5px;
+            }
+        .radio_buttons{
+            position:relative;
+            left: 85;
+            padding: 8%;
+            line-height: 30px;
+            font-family: Verdana; 
+            font-size: 15px;
+            }
+        .submit{
+            text-align: center;
+            padding: 4%;
+            font-family: Verdana; 
+            font-size: 50px;
+        }
+        .button{
+            font-family: Verdana; 
+            font-size: 15px;
+        }
+
+    </style>
+    <div class="box"> 
+        <h1>Online Registration</h1>
+        <h2>Please Indicate Your Role:</h2>
+        <div class="radio_buttons">
+            <input type="radio" name="role" id="student"> Student<br>
+            <input type="radio" name="role" id="admin"> Administrator<br>
+        </div>
+        
+        <div class="submit">
+            <button class="button" type="submit" name="role" value="role" onclick="submit()">Submit</button> 
+            <script>
+                function submit() {
+                    if (document.getElementById('student').checked == true) {
+                        window.location.href = "student.htm";
+                    }
+                }
+            </script>
+        </div>
+        
+        
+    </div>
+
+</body>
+</html>
