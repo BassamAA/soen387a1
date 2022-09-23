@@ -34,7 +34,7 @@
 		            die( "Could not connect to database </body></html>" );
 		   
 		         // open Products database
-		         if ( !mysqli_select_db( $database ,"products" ) )
+		         if ( !mysqli_select_db( $database ,"University" ) )
 		            die( "Could not open products database </body></html>" );
 		     
 		
