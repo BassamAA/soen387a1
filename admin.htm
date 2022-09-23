@@ -1,0 +1,75 @@
+-<!DOCTYPE html">
+		
+		<html >
+	   <head>
+		      <title>Administrator Page</title>
+		      <style type = "text/css">
+		         body  { background-color: #cce5e7 } 
+		         h2    { font-family: arial, sans-serif;
+		                 color: rgb(18, 24, 75) }
+		         input { background-color: rgb(222, 222, 228);
+		                 color: rgb(0, 0, 0);
+		                 font-weight: bold }
+		      </style>
+		   </head>
+		   <body>
+		      
+			  
+			  <h2> Administrator form :</h2>
+
+              <h1> Create a course :</h1>
+
+              <form method = "post" action = "page3.php">
+                <div>
+                <p>
+                Course Code :
+                 <input name = "Code" type = "int" value = "0" size = "10"/><br /></p>
+                 <p>
+                Title :
+                <input name = "title" type = "text" value = "xxx" size = "40"/><br /></p>
+                <p>
+                Semester :
+                 <input name = "semester" type = "text" value = "xxx" size = "40"/><br /></p>
+                 <p>
+                Days :
+                 <input name = "days" type = "text" value = "xxx" size = "40"/><br /></p>
+                 <p>
+                Time :
+                 <input name = "time" type = "time" value = "xxx" size = "40"/><br /></p>
+                 <p>
+                Instructor :
+                <input name = "instructor" type = "text" value = "xxx" size = "40"/><br /></p>
+                <p>
+                Room :
+                 <input name = "room" type = "text" value = "xxx" size = "40"/><br /></p>
+                 <p>
+                Start Date :
+                 <input name = "start" type = "date" value = "xxx" size = "40"/><br /></p>
+                 End Date :
+                 <input name = "end" type = "date" value = "xxx" size = "40"/><br /></p>
+
+
+
+		      <form method = "post" action = "page2.php">
+		         <div>
+		            <p>Select a field to display:
+		               <!-- add a select box containing options --> 
+		               <!-- for SELECT query -->
+		               <select name = "select">                   
+		                  <option selected = "selected">*</option>
+		                  <option>List of students in a course </option>    
+                          Course Code :
+                          <input name = "Code" type = "int" value = "0" size = "10"/><br /></p>
+                          <p>              
+		                  <option>Courses taken by student</option>  
+                          Student ID :
+                          <input name = "ID" type = "int" value = "0" size = "10"/><br /></p>
+                          <p>                                   
+		               </select></p>                              
+		            <input type = "submit" value = "Send Query" />
+		         </div>
+				 <br/>
+		      </form>
+			  
+		   </body>
+		</html>
