@@ -6,8 +6,8 @@
 		      <title>Search Results</title>
 		   <style type = "text/css">
 		         body  { font-family: arial, sans-serif;
-		                 background-color: white } 
-		         table { background-color: white }
+		                 background-color: red } 
+		         table { background-color: red }
 		         td    { padding-top: 2px;
 		                 padding-bottom: 2px;
 		                 padding-left: 4px;
