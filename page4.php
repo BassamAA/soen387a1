@@ -22,17 +22,27 @@
 		
 		         // build SELECT query
 		      
-				 $query="INSERT INTO student (ID, FirstName, LastName, Address, Email, PhoneNumber, DateofBirth)
-				 VALUES ('$ID','$FirstName','$LastName','$Address','$Email','$PhoneNumber,'$DateofBirth'')";
+				 $query="INSERT INTO Student (ID,FirstName,LastName,Address,Email,PhoneNumber, DateofBirth)
+				 VALUES ('$ID','$FirstName','$LastName','$Address','$Email','$PhoneNumber,'$DateofBirth')";
 				 
 				 
 		         // Connect to MySQL
-		         if ( !( $database = mysqli_connect( "http://localhost/phpmyadmin/index.php?route=/",
+				 $hostName = "localhost";
+				$userName = "root";
+				$password = "";
+				// Create connection
+				$database = mysqli_connect($host, $username, $password);
+
+				 
+				 
+				
+
+		         if ( !( $database = mysqli_connect( "localhost",
 		            "root", "" ) ) )                      
 		            die( "Could not connect to database </body></html>" );
 		   
 		         // open Student database
-		         if ( !mysqli_select_db( $database ,"http://localhost/phpmyadmin/index.php?route=/database/structure&db=University" ) )
+		         if ( !mysqli_select_db( $database ,"University" ) )
 		            die( "Could not open University database </body></html>" );
 		     
 		
