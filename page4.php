@@ -6,8 +6,8 @@
 		      <title>Search Results</title>
 		   <style type = "text/css">
 		         body  { font-family: arial, sans-serif;
-		                 background-color: #F0E68C } 
-		         table { background-color: #ADD8E6 }
+		                 background-color: white } 
+		         table { background-color: white }
 		         td    { padding-top: 2px;
 		                 padding-bottom: 2px;
 		                 padding-left: 4px;
@@ -17,6 +17,7 @@
 		      </style>
 		   </head>
 		   <body>
+			<h1> Ok </h1>
 		      <?php
 		         extract( $_POST );
 		
@@ -33,7 +34,7 @@
 		   
 		         // open Products database
 		         if ( !mysqli_select_db( $database ,"University" ) )
-		            die( "Could not open products database </body></html>" );
+		            die( "Could not open University database </body></html>" );
 		     
 		
 		
