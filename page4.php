@@ -22,7 +22,7 @@
 		
 		         // build SELECT query
 		      
-				 $query="INSERT INTO Student (ID, FirstName, LastName, Address, Email, PhoneNumber, DateofBirth)
+				 $query="INSERT INTO student (ID, FirstName, LastName, Address, Email, PhoneNumber, DateofBirth)
 				 VALUES ('$ID','$FirstName','$LastName','$Address','$Email','$PhoneNumber,'$DateofBirth'')";
 				 
 				 
@@ -32,7 +32,7 @@
 		            die( "Could not connect to database </body></html>" );
 		   
 		         // open Student database
-		         if ( !mysqli_select_db( $database ,"University" ) )
+		         if ( !mysqli_select_db( $database ,"university" ) )
 		            die( "Could not open University database </body></html>" );
 		     
 		
