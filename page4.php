@@ -33,6 +33,12 @@
 				// Create connection
 				$database = mysqli_connect($host, $username, $password);
 
+				if (!$database) {
+					die("Connection failed: " . mysqli_connect_error());
+				}
+				echo 'Connected successfully';
+				
+
 				 
 				 
 				
