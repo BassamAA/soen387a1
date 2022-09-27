@@ -1,86 +1,95 @@
 <!DOCTYPE html">
 		
-		<html >
-	   <head>
-		      <title>Create users</title>
-		      <style>
-               .box{
-                   background-color: gainsboro;
-                   position:relative;
-                   transform: translate(0, 5%);
-                   margin: auto;
-                   align-items: center;
-                   width: 700px;
-                   height: 600px;
-                   padding: 10px;
-                   border: 4px solid gray;
-                   border-radius: 15px;
-                   box-shadow: 5px 5px;
-               }
-               .welcome{
-                   line-height: 30px;
-                   font-family: Verdana;
-                   font-size: 12px;
-                   top: 15%;
-               }
-               .form{
-                   line-height: 10px;
-                   font-family: Verdana;
-                   font-size: 15px;
-               }
-               .button{
-                   font-family: Verdana;
-                   font-size: 15px;
-               }
-               .button:hover {
-                   background-color: rgb(241, 241, 241);
-               }
-         </style>
-		   </head>
-		   <body>
-		      
-           <div class="box">
+	<html >
+	<head>
+		<title>Create users</title>
+		    <style>
+                .box{
+                    background-color: gainsboro;
+                    position:relative;
+                    transform: translate(0, 5%);
+                    margin: auto;
+                    align-items: center;
+                    width: 700px;
+                    height: 600px;
+                    padding: 10px;
+                    border: 4px solid gray;
+                    border-radius: 15px;
+                    box-shadow: 5px 5px;
+                }
+                .welcome{
+                    padding-left: 2%;
+                    line-height: 30px;
+                    font-family: Verdana;
+                    font-size: 12px;
+                    top: 15%;
+                }
+                .div_form{
+                    padding-left: 2%;
+                    line-height: 10px;
+                    font-family: Verdana;
+                    font-size: 15px;
+                }
+                .button{
+                    padding-left: 2%;
+                    font-family: Verdana;
+                    font-size: 15px;
+                }
+                .button:hover {
+                    background-color: rgb(241, 241, 241);
+                }
+                .signin{
+                    padding-left: 2%;
+                    display: inline-block;
+                    margin-top: 10px;
+                    line-height: 30px;
+                    font-family: Verdana;
+                    font-size: 12px;
+                    top: 15%;
+                }
+        </style>
+    </head>
+		<body>
+
+        <div class="box">
             <div class="welcome">
                 <h1>Welcome</h1>
-                <h2>Please fill all fields below in order to create an Administrator Account:</h2>
+                <h2>Please fill in all fields below in order to create an Administrator Account:</h2>
             </div>
 
-            
-              <form method = "post" action = "page5.php">
-                <div class="form"></div>
-        
-                <p>
-                Employment ID:
-                 <input name = "EmpLoymentID" type = "int" value = "0" size = "10"/><br /></p>
-                 <p>
-                First Name :
-                <input name = "AFirstName" type = "text" value = "xxx" size = "40"/><br /></p>
-                <p>
-                Last Name :
-                 <input name = "ALastName" type = "text" value = "xxx" size = "40"/><br /></p>
-                 <p>
-                Address :
-                 <input name = "AAdress" type = "text" value = "xxx" size = "40"/><br /></p>
-                 <p>
-                Email :
-                 <input name = "AEmail" type = "text" value = "xxx" size = "40"/><br /></p>
-                 <p>
-                Phone Number :
-                <input name = "APhoneNumber" type = "int" value = "+1" size = "40"/><br /></p>
-                <p>
-                Date of Birth :
-                 <input name = "ADateOfBirth" type = "date" value = "" size = "40"/><br /></p>
-                 <p>
-                    <input type = "submit" value = "Insert to DB" />
-				</div>
-                </form>
-            <div class="welcome">
-               <h2>Already have an Administrator Account?</h2>
-               <input class="button" type="submit" value="Sign In">
-           </div>
-         </div>
-      </form>
+            <div class="div_form">
+                <form method = "post" action = "page5.php">
+                    <p>
+                        First Name : <input name = "AFirstName" type = "text" value = "xxx" size = "20"/>
+                        Last Name : <input name = "ALastName" type = "text" value = "xxx" size = "30"/>
+                    </p>
+                    <p>
+                        Address : <input name = "AAdress" type = "text" value = "xxx" size = "40"/><br />
+                    </p>
+                    <p>
+                        Email : <input name = "AEmail" type = "text" value = "xxx" size = "40"/><br />
+                    </p>
+                    <p>
+                        Phone Number : <input name = "APhoneNumber" type = "int" value = "+1" size = "40"/><br />
+                    </p>
+                    <p>
+                        Date of Birth : <input name = "ADateOfBirth" type = "date" value = "" size = "40"/><br />
+                    </p>
+                    <p>
+                    <p>
+                        Employment ID: <input name = "EmpLoymentID" type = "int" value = "0" size = "15"/><br />
+                    </p>
+                    <p>
+                        Password: <input name = "Password" type = "int" value = "0" size = "15"/><br />
+                    </p>
+                        <input class="button" type = "submit" value = "Create New Admin" />
+                    </form>
+            </div>
 
-
-		   </body>
-		</html>
+            <div class="signin">
+                <h2>Already have an Administrator Account?</h2>
+                <input class="button" type="submit" value="Sign In">
+            </div>
+        </div>
+	    </body>
+	</html>
