@@ -25,17 +25,23 @@
 					box-shadow: 5px 5px;
             	}
 				.student_info{
+					padding-top: 5%;
+					padding-left: 22%;
 					font-family: Verdana;
-					left: 85;
 					
 				}
-				.button{
-                   font-family: Verdana;
-                   font-size: 15px;
-               }
-               .button:hover {
-                   background-color: rgb(241, 241, 241);
-               }
+				.button_div{
+					padding-left: 22%;
+                	font-family: Verdana;
+                	font-size: 15px;
+                }
+			    .button{
+					font-family: Verdana;
+                	font-size: 15px;
+			    }
+                .button:hover {
+                	background-color: rgb(241, 241, 241);
+                }
 		    </style>
 		</head>
 		<body>
@@ -44,11 +50,13 @@
 				<form method = "post" action = "page1.php">
 				<div class="student_info">
 					<p>Student ID: 
-					<input name = "ID" type = "int" value = "xxxxxxxx" size = "10"/><br /></p>
+					<input name = "ID" type = "int" size = "10"/><br /></p>
 					<p>Password: 
-					<input name = "Code" type = "int" value ="x" size = "10" />
+					<input name = "Code" type = "int" size = "10" />
 					</p><br/>
-					<input type = "submit" value = "Insert to DB" />
+					<div class="button_div">
+						<input class="button" type = "submit" value = "Sign In" />
+					</div>	
 				</div>
 				</form>
 			</div>
