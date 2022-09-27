@@ -37,7 +37,6 @@
 		            die( "Could not open products database </body></html>" );
 		     
 		
-		
 		         // query Products database
 		         if ( !( $result = mysqli_query( $database,$query) ) ) 
 		         {

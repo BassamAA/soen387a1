@@ -1,6 +1,6 @@
 <!DOCTYPE html">
 		
-		<html >
+	<html >
 	   <head>
 		      <title>Create users</title>
 		   <style>
@@ -31,61 +31,77 @@
                .button{
                    font-family: Verdana;
                    font-size: 15px;
-               }
-               .button:hover {
-                   background-color: rgb(241, 241, 241);
-               }
-         </style>
-		   </head>
-		   <body>
-		      
-           <div class="box">
+                }
+                .button:hover {
+                    background-color: rgb(241, 241, 241);
+                }
+        </style>
+		</head>
+		<body>
+
+        <div class="box">
             <div class="welcome">
                 <h1>Welcome</h1>
                 <h2>Please fill all fields below in order to create a Student Account:</h2>
             </div>
+            
+            <script>
+                const student_ids = []
+                function validate_id(){
+                    // if(document.getElementById('ID').text().length!=8){
+                    //     console.log("ID needs to be 8 characters.")
+                    // }
+                    var error="";
+                    var name = document.getElementById( "fname" );
+                    if( name.value == "" )
+                    {
+                    error = " You Have To Write Your Name. ";
+                    document.getElementById( "error_para" ).innerHTML = error;
+                    return false;
+                    }
+                    
+                }
+            </script>
 
-              <form method = "post" action = "page4.php">
+            <form method = "post" action = "page4.php" onsubmit="return validate_id();">
                 <div class="form">
                 <p>
                 Student ID :
-                 <input name = "ID" type = "int" value = "0" size = "10"/><br /></p>
-                 <p>
+                <input name = "ID" id ="ID" type = "int" value = "0" size = "10"/><br /></p>
+                <p>
                 First Name :
-                <input name = "FirstName" type = "text" value = "xxx" size = "40"/><br /></p>
+                <input name = "FirstName" id ="fname" type = "text" value = "xxx" size = "40"/><br /></p>
                 <p>
                 Last Name :
-                 <input name = "LastName" type = "text" value = "xxx" size = "40"/><br /></p>
-                 <p>
+                <input name = "LastName" type = "text" value = "xxx" size = "40"/><br /></p>
+                <p>
                 Address :
-                 <input name = "Address" type = "text" value = "xxx" size = "40"/><br /></p>
-                 <p>
+                <input name = "Address" type = "text" value = "xxx" size = "40"/><br /></p>
+                <p>
                 Email :
-                 <input name = "Email" type = "text" value = "xxx" size = "40"/><br /></p>
-                 <p>
+                <input name = "Email" type = "text" value = "xxx" size = "40"/><br /></p>
+                <p>
                 Phone Number :
                 <input name = "PhoneNumber" type = "int" value = "xxx-xxx-xxx" size = "40"/><br /></p>
                 <p>
                 Date of Birth :
-                 <input name = "DateofBirth" type = "date" value = "" size = "10"/><br /></p>
-            <input class = "button" type = "submit" value = "Insert to DB" />
+                <input name = "DateofBirth" type = "date" value = "" size = "10"/><br /></p>
+                
+                <input class = "button" type = "submit" value = "Insert to DB" onclick="return validate_id();" />
+                
         </div>
             </form>
             <br></br>
             
             <div class="welcome">
-               <h2>Already have a Student Account?</h2>
-               <!-- <input class="button" type="submit" value="Sign In"> -->
-               <button class="button" type="submit" name="role" value="Sign In" onclick="submit()">Sign In</button> 
-               <script>
-                function submit() {
-                    window.location.href = "student.htm";
-                }
-               </script>
-           </div>
-         </div>
-      
-
-			  
-		   </body>
-		</html>
+                <h2>Already have a Student Account?</h2>
+                <button class="button" type="submit" name="role" value="Sign In" onclick="submit()">Sign In</button> 
+                <script>
+                    function submit() {
+                        window.location.href = "student.htm";
+                    }
+                </script>
+            </div>
+        </div>
+        </body>
+	</html>
