@@ -1,107 +1,107 @@
 <!DOCTYPE html">
 		
 	<html >
-	   <head>
-		      <title>Create users</title>
-		   <style>
-               .box{
-                   background-color: gainsboro;
-                   position:relative;
-                   transform: translate(0, 5%);
-                   margin: auto;
-                   align-items: center;
-                   width: 700px;
-                   height: 600px;
-                   padding: 10px;
-                   border: 4px solid gray;
-                   border-radius: 15px;
-                   box-shadow: 5px 5px;
-                   
-               }
-               .welcome{
-                   line-height: 30px;
-                   font-family: Verdana;
-                   font-size: 12px;
-               }
-               .form{
-                   line-height: 10px;
-                   font-family: Verdana;
-                   font-size: 15px;
-               }
-               .button{
-                   font-family: Verdana;
-                   font-size: 15px;
+	    <head>
+		<title>Create users</title>
+		<style>
+                .box{
+                    background-color: gainsboro;
+                    position:relative;
+                    top: 4%;
+                    transform: translate(0, 5%);
+                    margin: auto;
+                    align-items: center;
+                    width: 700px;
+                    height: 550px;
+                    padding: 10px;
+                    border: 4px solid gray;
+                    border-radius: 15px;
+                    box-shadow: 5px 5px;
+                }
+                .welcome{
+                    padding-left: 2%;
+                    line-height: 30px;
+                    font-family: Verdana;
+                    font-size: 12px;
+                    top: 15%;
+                    
+                }
+                .div_form{
+                    padding-left: 2%;
+                    line-height: 10px;
+                    font-family: Verdana;
+                    font-size: 15px;
+                }
+                .button{
+                    padding-left: 2%;
+                    font-family: Verdana;
+                    font-size: 15px;
                 }
                 .button:hover {
                     background-color: rgb(241, 241, 241);
                 }
+                .sign_in{
+                    padding-left: 2%;
+                    display: inline-block;
+                    margin-top: 10px;
+                    line-height: 30px;
+                    font-family: Verdana;
+                    font-size: 12px;
+                    
+                }
         </style>
-		</head>
-		<body>
-
+	</head>
+	    <body>
         <div class="box">
             <div class="welcome">
                 <h1>Welcome</h1>
-                <h2>Please fill all fields below in order to create a Student Account:</h2>
+                <h2>Please fill in all fields below in order to create a Student Account:</h2>
             </div>
-            
-            <script>
-                const student_ids = []
-                function validate_id(){
-                    // if(document.getElementById('ID').text().length!=8){
-                    //     console.log("ID needs to be 8 characters.")
-                    // }
-                    var error="";
-                    var name = document.getElementById( "fname" );
-                    if( name.value == "" )
-                    {
-                    error = " You Have To Write Your Name. ";
-                    document.getElementById( "error_para" ).innerHTML = error;
-                    return false;
-                    }
-                    
-                }
-            </script>
 
-            <form method = "post" action = "page4.php" onsubmit="return validate_id();">
-                <div class="form">
-                <p>
-                Student ID :
-                <input name = "ID" id ="ID" type = "int" value = "0" size = "10"/><br /></p>
-                <p>
-                First Name :
-                <input name = "FirstName" id ="fname" type = "text" value = "xxx" size = "40"/><br /></p>
-                <p>
-                Last Name :
-                <input name = "LastName" type = "text" value = "xxx" size = "40"/><br /></p>
-                <p>
-                Address :
-                <input name = "Address" type = "text" value = "xxx" size = "40"/><br /></p>
-                <p>
-                Email :
-                <input name = "Email" type = "text" value = "xxx" size = "40"/><br /></p>
-                <p>
-                Phone Number :
-                <input name = "PhoneNumber" type = "int" value = "xxx-xxx-xxx" size = "40"/><br /></p>
-                <p>
-                Date of Birth :
-                <input name = "DateofBirth" type = "date" value = "" size = "10"/><br /></p>
-                
-                <input class = "button" type = "submit" value = "Insert to DB" onclick="return validate_id();" />
-                
-        </div>
-            </form>
-            <br></br>
+            <div class="div_form" >
+                <form name='form' action="/newstudent.htm" onsubmit="return validateForm()" method="post">
+                    <p>
+                        First Name: <input type="text" name="FirstName" >
+                        Last Name: <input type="text" name="LastName" >
+                    </p>
+
+                    <p>
+                        Address: <input type="text" name="Adress" >
+                    </p>
+
+                    <p>
+                        Email: <input type="text" name="Email" >
+                    </p>
+
+                    <p>
+                        Phone Number: <input type="number" name="PhoneNumber" >
+                    </p>
+
+                    <p>
+                        Date of Birth: <input type="text" name="DateOfBirth" value="DD-MM-YYYY">
+                    </p>
+
+                    <p>
+                        Student ID: <input type="number" name="ID" size="8" minlength="8" maxlength="8">
+                    </p>
+
+                    <p>
+                        Password: <input type="number" name="ID" size="8" minlength="8" maxlength="8">
+                    </p>
+
+                    <input class="button" type="submit" value="Create Student Account">
+
+                    <script type="text/javascript" src="/usersignup.js"></script>
+                    
+                </form>
+            </div>
             
-            <div class="welcome">
+            <div class="sign_in">
                 <h2>Already have a Student Account?</h2>
-                <button class="button" type="submit" name="role" value="Sign In" onclick="submit()">Sign In</button> 
-                <script>
-                    function submit() {
-                        window.location.href = "student.htm";
-                    }
-                </script>
+                <input class="button" type="submit" value="Sign In">
             </div>
         </div>
-        </body>
+
+		</body>
 	</html>
+
