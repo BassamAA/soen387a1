@@ -1,13 +1,12 @@
 <!-- PHP File used to enroll students in courses -->
 
-
 <!DOCTYPE html>
 		<html xmlns = "http://www.w3.org/1999/xhtml">
-		   <head>
-		      <title>Search Results</title>
-		   <style type = "text/css">
-		         body  { font-family: arial, sans-serif;
-		                 background-color: #F0E68C } 
+			<head>
+				<title>Search Results</title>
+			<style type = "text/css">
+		        body  { font-family: arial, sans-serif;
+		                background-color: #F0E68C } 
 		         table { background-color: #ADD8E6 }
 		         td    { padding-top: 2px;
 		                 padding-bottom: 2px;
