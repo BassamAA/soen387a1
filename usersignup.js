@@ -1,4 +1,7 @@
 
+
+
+
 function validateForm() {
     // id, name, last name, email, address, phone, date birth
     let Id = document.forms["form"]["ID"].value;
@@ -13,47 +16,65 @@ function validateForm() {
     // must be 8 digits long
     // html input type number already validates for numbers and not letters and special characters
     if (Id == "") {
-        alert("Student ID must be filled out");
+        alert("Student ID must be filled out!");
         document.forms["form"]["ID"].focus();
         return false;
     }
-    else {
-        //this might be unnecessary because input number
-        // already checks for nmubers
-        // if (!(parseInt(Number(Id)) == Id)){
-        //     alert("ID must only contain integers");
-        //     return false;
-        // };
-        if (Id.length != 8){
-            alert("ID must be of length 8");
-            return false;
-        };
+    else if (Id.length != 8) {
+        alert("ID must be of length 8");
+        document.forms["form"]["ID"].focus();
+        return false;
     };
+
 
 
     // validating the First Name using regex 
     // only letters allowed
-    var regName = /^[a-zA-Z]+$/;
-    if (!regName.test(FirstName)){
+    let regName = /^[a-zA-Z]+$/;
+    if (FirstName == "") {
+        alert("First Name must be filled out!");
+        document.forms["form"]["FirstName"].focus();
+        return false;
+    }
+    else if (!regName.test(FirstName)) {
         alert("First Name must only contain letters");
         document.forms["form"]["FirstName"].focus();
-        return false;        
+        return false;
     }
+
 
     // validating Last Name
     // only letters allowed
-    if (!regName.test(LastName)){
+    if (LastName == "") {
+        alert("Last Name must be filled out!");
+        document.forms["form"]["LastName"].focus();
+        return false;
+    }
+    else if (!regName.test(LastName)) {
         alert("Last Name must only contain letters");
         document.forms["form"]["LastName"].focus();
-        return false;        
+        return false;
+    }
+
+    // validating address
+    // must not be empty
+    if (Adress == "") {
+        alert("Adress must be filled out!");
+        document.forms["form"]["Adress"].focus();
+        return false;
     }
 
 
     // validating email
     // must contain characters + '@' + characters
-    var regEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    let regEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
-    if (!regEmail.test(Email)) {
+    if (Email == "") {
+        alert("Email must be filled out!");
+        document.forms["form"]["Email"].focus();
+        return false;
+    }
+    else if (!regEmail.test(Email)) {
         alert("Invalid email address!");
         document.form1.text1.focus();
         return false;
@@ -61,21 +82,31 @@ function validateForm() {
 
     // validate phone number
     // no spaces or with spaces between the digits
-
-    var regPhone1 = /^\d{10}$/;
-    var regPhone2 = /^\(?([0-9]{3})\)?[ ]?([0-9]{3})[ ]?([0-9]{4})$/;
-    if ((!regPhone1.test(PhoneNumber)) && (!regPhone2.test(PhoneNumber))) {
+    let regPhone1 = /^\d{10}$/;
+    let regPhone2 = /^\(?([0-9]{3})\)?[ ]?([0-9]{3})[ ]?([0-9]{4})$/;
+    if (PhoneNumber == "") {
+        alert("Phone Number must be filled out!");
+        document.forms["form"]["PhoneNumber"].focus();
+        return false;
+    }
+    else if ((!regPhone1.test(PhoneNumber)) && (!regPhone2.test(PhoneNumber))) {
         alert("Invalid Phone Number!");
         document.forms["form"]["PhoneNumber"].focus();
         return false;
     }
 
 
+
     // validating date of birth
     // must have format: DD-MM-YYYY
     // must be 18
-    var regDateOfBirth = /^\d{4}-\d{2}-\d{2}$/
-    if(!regDateOfBirth.test(DateOfBirth)) {
+    let regDateOfBirth = /^\d{4}-\d{2}-\d{2}$/
+    if (DateOfBirth = "") {
+        alert("Date of Birth must be filled out!");
+        document.forms["form"]["DateOfBirth"].focus();
+        return false;
+    }
+    else if (!regDateOfBirth.test(DateOfBirth)) {
         alert("Invalid Date of Birth format, !");
         document.forms["form"]["DateOfBirth"].focus();
         return false;
@@ -87,23 +118,23 @@ function validateForm() {
     let birthMonth = parseInt(DateOfBirth[1], 10);
     let birthDay = parseInt(DateOfBirth[0], 10);
 
-    if (birthDay > 31){
+    if (birthDay > 31) {
         alert("Invalid Birth Day!");
         document.forms["form"]["DateOfBirth"].focus();
-        return false;   
+        return false;
     }
-    if (birthMonth > 12){
+    if (birthMonth > 12) {
         alert("Invalid Birth Month!");
-        document.forms["form"]["DateOfBirth"].focus();
-        return false;   
-    }
-
-    if (birthYear > (thisYear-18)){
-        alert("Invalid Birthday. Must be 18 years old!");
         document.forms["form"]["DateOfBirth"].focus();
         return false;
     }
 
-    return true;
+    if (birthYear > (thisYear - 18)) {
+        alert("Invalid Date of Birth. Must be 18 years old!");
+        document.forms["form"]["DateOfBirth"].focus();
+        return false;
+    }
 
-}
+
+    return true;
+};
