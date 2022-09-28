@@ -26,38 +26,7 @@
 				 VALUES ('$ID','$FirstName','$LastName','$Address','$Email','$PhoneNumber,'$DateofBirth')";
 				 
 				 
-		        //  // Connect to MySQL
-				//  $hostName = "localhost";
-				// $userName = "root";
-				// $password = "";
-				// // Create connection
-				// $database = mysqli_connect($host, $username, $password);
-
-				// if (!$database) {
-				// 	die("Connection failed: " . mysqli_connect_error());
-				// }
-				// echo 'Connected successfully';
-
-				function OpenCon()
- 				{
-					$dbhost = "localhost";
-					$dbuser = "root";
-					$dbpass = "";
-					$db = "University";
-					$conn = new mysqli($dbhost, $dbuser, $dbpass,$db) or die("Connect failed: %s\n". $conn -> error);
-					
-					return $conn;
-					}
-					
-					function CloseCon($conn)
-					{
-					$conn -> close();
-					}
-
-					$database = OpenCon()
 				
-
-				 
 		         if ( !( $database = mysqli_connect( "localhost",
 		            "root", "" ) ) )                      
 		            die( "Could not connect to database </body></html>" );
