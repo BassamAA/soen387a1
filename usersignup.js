@@ -107,7 +107,7 @@ function validateForm() {
         return false;
     }
     else if (!regDateOfBirth.test(DateOfBirth)) {
-        alert("Invalid Date of Birth format, !");
+        alert("Invalid Date of Birth format!");
         document.forms["form"]["DateOfBirth"].focus();
         return false;
     }
