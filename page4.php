@@ -22,8 +22,8 @@
 		
 		         // build SELECT query
 		      
-				 $query="INSERT INTO Student (ID,FirstName,LastName,Address,Email,PhoneNumber, DateofBirth)
-				 VALUES ('$ID','$FirstName','$LastName','$Address','$Email','$PhoneNumber,'$DateofBirth')";
+				 $query="INSERT INTO Student (ID,FirstName,LastName,Addresss,Email,PhoneNumber, DateofBirth)
+				 VALUES ('$ID','$FirstName','$LastName','$Addresss','$Email','$PhoneNumber,'$DateofBirth')";
 				 
 				 
 				
@@ -48,6 +48,7 @@
 				print("You were succesfully registered");
 				}
 		         mysqli_close( $database );
+				 
 		      ?><!-- end PHP script -->
 		      
 		   </body>
