@@ -1,7 +1,8 @@
-<!-- PHP File used to create new course -->
-
-<!DOCTYPE html>
-		<html xmlns = "http://www.w3.org/1999/xhtml">
+		<!-- PHP File used to query students in a course / query courses taken by a student -->
+		<!DOCTYPE html >
+		
+		
+		<html>
 		   <head>
 		      <title>Search Results</title>
 		   <style type = "text/css">
@@ -21,34 +22,43 @@
 		         extract( $_POST );
 		
 		         // build SELECT query
-		      
-				 $query="INSERT INTO EnrolledIn (ID, Code)
-				 VALUES ('$ID','$Code')";
-				 
-				 
+		         $query = "SELECT " . $select . " FROM EnrolledIn WHERE ID = $ID";
 		         // Connect to MySQL
 		         if ( !( $database = mysqli_connect( "localhost",
 		            "newUser", "password" ) ) )                      
 		            die( "Could not connect to database </body></html>" );
 		   
 		         // open Products database
-		         if ( !mysqli_select_db( $database ,"University" ) )
+		         if ( !mysqli_select_db( $database, "University") )
 		            die( "Could not open products database </body></html>" );
-		     
-		
 		
 		         // query Products database
-		         if ( !( $result = mysqli_query( $database,$query) ) ) 
+		         if ( !( $result = mysqli_query( $database, $query) ) ) 
 		         {
 		            print( "Could not execute query! <br />" );
 		            die( mysqli_error() . "</body></html>" );
 		         } // end if
-				else
-				{
-				print("Course was successfully created");
-				}
+		
 		         mysqli_close( $database );
 		      ?><!-- end PHP script -->
-		      
+		      <h3>Search Results</h3>
+		      <table>
+		         <?php
+		            // fetch each record in result set
+		            for ( $counter = 0; $row = mysqli_fetch_row( $result );
+		               $counter++ )
+		            {
+		               // build table to display results
+		               print( "<tr>" );
+		               foreach ( $row as $key => $value ) 
+		                  print( "<td>$value</td>" );
+		
+		               print( "</tr>" );
+		            } // end for
+		         ?><!-- end PHP script -->
+		      </table>
+		      <br />Your search yielded <strong>
+		      <?php print( "$counter" ) ?> results.<br /><br /></strong>
+		      <h5> Thank you for using the application!</h5>
 		   </body>
 		</html>

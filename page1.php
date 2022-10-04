@@ -1,13 +1,13 @@
-<!-- PHP File used to enroll students in courses -->
+<!-- PHP file used to create new student -->
 
 <!DOCTYPE html>
 		<html xmlns = "http://www.w3.org/1999/xhtml">
-			<head>
-				<title>Search Results</title>
-			<style type = "text/css">
-		        body  { font-family: arial, sans-serif;
-		                background-color: #F0E68C } 
-		         table { background-color: #ADD8E6 }
+		   <head>
+		      <title>Search Results</title>
+		   <style type = "text/css">
+		         body  { font-family: arial, sans-serif;
+		                 background-color: white } 
+		         table { background-color: white }
 		         td    { padding-top: 2px;
 		                 padding-bottom: 2px;
 		                 padding-left: 4px;
@@ -22,21 +22,22 @@
 		
 		         // build SELECT query
 		      
-				 $query="INSERT INTO Students (ID, Code)
-				 VALUES ('$ID','$Code')";
+				 $query="INSERT INTO Courses (Code,Title,Semester,days1,time1, Instructor,Room,start1,end1)
+				 VALUES ('$Code','$title','$semester','$days','$time','$instructor,'$room','$start,$end)";
 				 
 				 
-		         // Connect to MySQL
+				
 		         if ( !( $database = mysqli_connect( "localhost",
-		            "root", "" ) ) )                      
+		            "newUser", "password" ) ) )                      
 		            die( "Could not connect to database </body></html>" );
 		   
-		         // open Products database
+		         // open Student database
 		         if ( !mysqli_select_db( $database ,"University" ) )
-		            die( "Could not open products database </body></html>" );
+		            die( "Could not open University database </body></html>" );
 		     
 		
-		         // query Products database
+		
+		         // query Student database
 		         if ( !( $result = mysqli_query( $database,$query) ) ) 
 		         {
 		            print( "Could not execute query! <br />" );
@@ -44,9 +45,10 @@
 		         } // end if
 				else
 				{
-				print("Succesfully registered to the class !");
+				print("You were succesfully registered");
 				}
 		         mysqli_close( $database );
+				 
 		      ?><!-- end PHP script -->
 		      
 		   </body>

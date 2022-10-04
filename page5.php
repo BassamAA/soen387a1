@@ -30,7 +30,7 @@
 				 
 		         // Connect to MySQL
 		         if ( !( $database = mysqli_connect( "localhost",
-		            "root", "" ) ) )                      
+		            "newUser", "password" ) ) )                      
 		            die( "Could not connect to database </body></html>" );
 		   
 		         // open Products database

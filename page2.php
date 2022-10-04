@@ -1,5 +1,4 @@
-		<!-- PHP File used to query students in a course / query courses taken by a student -->
-		<!DOCTYPE html >
+<!DOCTYPE html >
 		
 		
 		<html>
@@ -22,14 +21,14 @@
 		         extract( $_POST );
 		
 		         // build SELECT query
-		         $query = "SELECT " . $select . " FROM students";
+		         $query = "SELECT " . $select . " FROM EnrolledIn WHERE Code = $Code";
 		         // Connect to MySQL
 		         if ( !( $database = mysqli_connect( "localhost",
-		            "root", "" ) ) )                      
+		            "newUser", "password" ) ) )                      
 		            die( "Could not connect to database </body></html>" );
 		   
 		         // open Products database
-		         if ( !mysqli_select_db( $database, "products") )
+		         if ( !mysqli_select_db( $database, "University") )
 		            die( "Could not open products database </body></html>" );
 		
 		         // query Products database
