@@ -1,57 +1,95 @@
-<!DOCTYPE html">
+<!DOCTYPE html>
 		
 	<html >
 	    <head>
 		<title>Create users</title>
-		<style>
-                .box{
-                    background-color: gainsboro;
-                    position:relative;
-                    top: 4%;
-                    transform: translate(0, 5%);
-                    margin: auto;
-                    align-items: center;
-                    width: 700px;
-                    height: 550px;
-                    padding: 10px;
-                    border: 4px solid gray;
-                    border-radius: 15px;
-                    box-shadow: 5px 5px;
-                }
-                .welcome{
-                    padding-left: 2%;
-                    line-height: 30px;
-                    font-family: Verdana;
-                    font-size: 12px;
-                    top: 15%;
-                    
-                }
-                .div_form{
-                    padding-left: 2%;
-                    line-height: 10px;
-                    font-family: Verdana;
-                    font-size: 15px;
-                }
-                .button{
-                    padding-left: 2%;
-                    font-family: Verdana;
-                    font-size: 15px;
-                }
-                .button:hover {
-                    background-color: rgb(241, 241, 241);
-                }
-                .sign_in{
-                    padding-left: 2%;
-                    display: inline-block;
-                    margin-top: 10px;
-                    line-height: 30px;
-                    font-family: Verdana;
-                    font-size: 12px;
-                    
-                }
+	    </head>
+
+        <div class="homeNav">
+            <a href="welcome.htm">Welcome</a>
+            <a href="student_signIn.htm">Student Log In</a>
+            <a href="admin_signIn.htm">Admin Log In</a>
+        </div>
+
+        <body>
+
+        <style>
+
+            .homeNav{
+                position: fixed;
+                top: 0;
+                right: 0;
+                left: 0;
+                height: 3.8rem;
+                width: 100%;
+                z-index: 1;
+                font-family: Helvetica, Arial, sans-serif;
+            }
+
+            .homeNav a{
+                color: cornflowerblue;
+                text-decoration: none;
+                font-size: 150%;
+                display: block;
+                float: left;
+                padding: 1rem;
+                margin-left: auto;
+                margin-right: auto;
+                font-family: Helvetica, Arial, sans-serif;
+            }
+
+            .homeNav a:hover{
+                background: gray;
+            }
+
+
+            .box{
+                background-color: gainsboro;
+                position:relative;
+                top: 4%;
+                transform: translate(0, 15%);
+                margin: auto;
+                align-items: center;
+                width: 700px;
+                height: 550px;
+                padding: 10px;
+                border: 4px solid gray;
+                border-radius: 15px;
+                box-shadow: 5px 5px;
+            }
+            .welcome{
+                padding-left: 2%;
+                line-height: 30px;
+                font-family: Verdana;
+                font-size: 12px;
+                top: 15%;
+
+            }
+            .div_form{
+                padding-left: 2%;
+                line-height: 10px;
+                font-family: Verdana;
+                font-size: 15px;
+            }
+            .button{
+                padding-left: 2%;
+                font-family: Verdana;
+                font-size: 15px;
+            }
+            .button:hover {
+                background-color: rgb(241, 241, 241);
+            }
+            .sign_in{
+                padding-left: 2%;
+                display: inline-block;
+                margin-top: 10px;
+                line-height: 30px;
+                font-family: Verdana;
+                font-size: 12px;
+
+            }
         </style>
-	</head>
-	    <body>
+
         <div class="box">
             <div class="welcome">
                 <h1>Welcome</h1>

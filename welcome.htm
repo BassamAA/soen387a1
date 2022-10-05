@@ -1,20 +1,57 @@
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
 </head>
+
+<div class="homeNav">
+    <a href="#">Welcome</a>
+    <a href="student_signIn.htm">Student Log In</a>
+    <a href="admin_signIn.htm">Admin Log In</a>
+</div>
+
 <body>
     
     <style>
-        
+
+        .homeNav{
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            height: 3.8rem;
+            width: 100%;
+            z-index: 1;
+            font-family: Helvetica, Arial, sans-serif;
+        }
+
+        .homeNav a{
+            color: cornflowerblue;
+            text-decoration: none;
+            font-size: 150%;
+            display: block;
+            float: left;
+            padding: 1rem;
+            margin-left: auto;
+            margin-right: auto;
+            font-family: Helvetica, Arial, sans-serif;
+        }
+
+        .homeNav a:hover{
+            background: gray;
+        }
+
+
         h1   {color: black; text-align: center; font-family: Verdana; font-size: 30px;}
         h2   {color: black; text-align: center; font-family: Verdana; font-size: 20px;}
         .box {
             background-color: gainsboro;
             position:relative;
             top: 50%;
-            transform: translate(0, -50%);
+            transform: translate(0, 50%);
             margin: auto;
             align-items: center;
             width: 350px;
@@ -26,7 +63,7 @@
             }
         .radio_buttons{
             position:relative;
-            left: 85;
+            /*left: 85;*/
             padding: 8%;
             line-height: 30px;
             font-family: Verdana; 

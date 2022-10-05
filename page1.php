@@ -1,5 +1,19 @@
 <!-- PHP File used to enroll students in courses -->
 
+<?php
+
+$conn = new mysqli("localhost","root", "", "university");
+$sql2 = "SELECT * FROM `Student`";
+$result2 = $conn->query($sql2);
+
+if (!$result2){
+    die("Query Failed");
+}
+
+?>
+
+
+
 <!DOCTYPE html>
 		<html xmlns = "http://www.w3.org/1999/xhtml">
 			<head>
@@ -21,8 +35,8 @@
 		         extract( $_POST );
 		
 		         // build SELECT query
-		      
-				 $query="INSERT INTO Students (ID, Code)
+              $conn = new mysqli("localhost","root", "", "university");
+              $query="INSERT INTO enrolledin (ID, Code)
 				 VALUES ('$ID','$Code')";
 				 
 				 
@@ -32,20 +46,31 @@
 		            die( "Could not connect to database </body></html>" );
 		   
 		         // open Products database
-		         if ( !mysqli_select_db( $database ,"University" ) )
+		         if ( !mysqli_select_db( $database ,"university" ) )
 		            die( "Could not open products database </body></html>" );
-		     
-		
-		         // query Products database
-		         if ( !( $result = mysqli_query( $database,$query) ) ) 
-		         {
-		            print( "Could not execute query! <br />" );
-		            die( mysqli_error() . "</body></html>" );
-		         } // end if
+
+
+              $result = $conn->query($query);
+              if (!$result2){
+                  die("Query Failed");
+              }// end if
 				else
 				{
 				print("Succesfully registered to the class !");
 				}
+
+		     
+		
+		         // query Products database
+//		         if ( !( $result = mysqli_query( $database,$query) ) )
+//		         {
+//		            print( "Could not execute query! <br />" );
+//		            die( "mysqli_error()" . "</body></html>" );
+//		         } // end if
+//				else
+//				{
+//				print("Succesfully registered to the class !");
+//				}
 		         mysqli_close( $database );
 		      ?><!-- end PHP script -->
 		      
