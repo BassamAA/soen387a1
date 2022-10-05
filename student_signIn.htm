@@ -5,15 +5,14 @@
 	<html >
 	<head>
 		<title>Student page</title>
+	</head>
 		    <style type = "text/css">
 		        h2    { font-family: Verdana; text-align: center;}
-		        input {
-		                color: rgb(0, 0, 0);
-		                font-weight: bold }
+		        input {color: rgb(0, 0, 0); font-weight: bold }
 				.box {
 					background-color: gainsboro;
 					position:relative;
-					top: 50%;
+					top: 40%;
 					transform: translate(0, -50%);
 					margin: auto;
 					align-items: center;
@@ -43,21 +42,31 @@
                 	background-color: rgb(241, 241, 241);
                 }
 		    </style>
-		</head>
+		
+		<div class="dropdown">
+			<link href="navigate.css" rel="stylesheet">
+			<button class="dropbtn">Navigate</button>
+			<div class="dropdown-content">
+				<a href="welcome.htm">Welcome</a>
+				<a href="#">Student Log In</a>
+				<a href="admin_signIn.htm">Admin Log In</a>
+			</div>
+		</div>
+
 		<body>
 			<div class="box">
 				<h2>Student Login</h2>
 				<form method = "post" action = "page1.php">
-				<div class="student_info">
-					<p>Student ID: 
-					<input name = "ID" type = "int" size = "10"/><br /></p>
-					<p>Password: 
-					<input name = "Code" type = "int" size = "10" />
-					</p><br/>
-					<div class="button_div">
-						<input class="button" type = "submit" value = "Sign In" />
-					</div>	
-				</div>
+					<div class="student_info">
+						<p>Student ID: 
+						<input name = "ID" type = "int" size = "10"/><br /></p>
+						<p>Password: 
+						<input name = "Code" type = "int" size = "10" />
+						</p><br/>
+						<div class="button_div">
+							<input class="button" type = "submit" value = "Sign In" />
+						</div>	
+					</div>
 				</form>
 			</div>
 		</body>
