@@ -59,16 +59,15 @@
             </div>
 
             <div class="div_form" >
-                
-                <form name='form' action="/newstudent.htm" onsubmit="return validateForm()" method="post">
-                    <form method="post" action = "page4.php">
+                <!-- onsubmit="return validateForm()" -->
+                <form name='form' action="page4.php" method="post">
                     <p>
                         First Name: <input type="text" name="FirstName" >
                         Last Name: <input type="text" name="LastName" >
                     </p>
 
                     <p>
-                        Address: <input type="text" name="Adress" >
+                        Address: <input type="text" name="Address" >
                     </p>
 
                     <p>
@@ -76,11 +75,12 @@
                     </p>
 
                     <p>
-                        Phone Number: <input type="number" name="PhoneNumber" >
+                        Phone Number: <input type="int" name="PhoneNumber" >
                     </p>
 
                     <p>
-                        Date of Birth: <input type="text" name="DateOfBirth" value="DD-MM-YYYY">
+                        <!--  value="DD-MM-YYYY" -->
+                        Date of Birth: <input type="text" name="DateOfBirth">
                     </p>
 
                     <p>
@@ -88,7 +88,7 @@
                     </p>
 
                     <p>
-                        Password: <input type="text" name="password" size="8" minlength="8" maxlength="8">
+                        Password: <input type="text" name="Password" size="8" minlength="8" maxlength="8">
                     </p>
 
                     <input class="button" type="submit" value="Create Student Account">
@@ -96,22 +96,22 @@
                     <script type="text/javascript" src="/usersignup.js"></script>
                     
                 </form>
-                <p>
+                <!-- <p>
                     Password: <input type="text" name="password" size="8" minlength="8" maxlength="8">
                     <script type="text/javascript" src="/usersignup.js"></script>
                 </p>
-            </form>
+            </form> -->
             </div>
             
             <div class="sign_in">
                 <h2>Already have a Student Account?</h2>
                 <input class="button" type="submit" value="Sign In" onclick="myFunction()">
-                <script>
+                <!-- <script>
                     function myFunction() {
                         window.location.href="./student_signIn.htm";
                     }
                 </script>
-            </div>
+            </div> -->
         </div>
 		</body>
 	</html>

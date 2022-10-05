@@ -22,14 +22,15 @@
 		         extract( $_POST );
 		
 		         // build SELECT query
-		         $query = "SELECT " . $select . " FROM students";
+		        //  $query = "SELECT " . $select . " FROM students";
+		         $query = "SELECT " . "*" . " FROM Student";
 		         // Connect to MySQL
 		         if ( !( $database = mysqli_connect( "localhost",
-		            "root", "" ) ) )                      
+		            "root", "wrgWM3K52n8fk3mC" ) ) )                      
 		            die( "Could not connect to database </body></html>" );
 		   
 		         // open Products database
-		         if ( !mysqli_select_db( $database, "products") )
+		         if ( !mysqli_select_db( $database, "University") )
 		            die( "Could not open products database </body></html>" );
 		
 		         // query Products database
