@@ -83,46 +83,15 @@
 
         <div class="div_form">
             <!-- onsubmit="return validateForm()" -->
-            <form name='form' action="page4.php" method="post">
-                <!-- <p>
-                        First Name: <input type="text" name="FirstName" >
-                        Last Name: <input type="text" name="LastName" >
-                    </p>
-
-                    <p>
-                        Address: <input type="text" name="Address" >
-                    </p>
-
-                    <p>
-                        Email: <input type="text" name="Email" >
-                    </p>
-
-                    <p>
-                        Phone Number: <input type="int" name="PhoneNumber" >
-                    </p>
-
-                    <p>
-                        Date of Birth: <input type="text" name="DateOfBirth">
-                    </p>
-
-                    <p>
-                        Student ID: <input type="number" name="ID" size="8" minlength="8" maxlength="8">
-                    </p>
-
-                    <p>
-                        Password: <input type="text" name="Password" size="8" minlength="8" maxlength="8">
-                    </p>
-
-                    <input class="button" type="submit" value="Create Student Account"> -->
-
+            <form name='form' action="newstudent.php" method="post">
 
 
                 <table class="table">
                     <tr>
                         <td>Student ID:</td>
-                        <td><input name="ID" type="int" size="10" /></td>
-                        <td> Password:</td>
-                        <td><input type="int" name="Password" size="8"></td>
+                        <td><input name="ID" type="int" max="10" /></td>
+                        <td>Password:</td>
+                        <td><input name="PW" type="int" max="8"></td>
                     </tr>
                     <tr>
                         <td>First Name:</td>
@@ -138,7 +107,7 @@
                     </tr>
                     <tr>
                         <td>Phone Number:</td>
-                        <td><input name="PhoneNumber" type="int" size="10" /></td>
+                        <td><input name="PhoneNumber" type="int" max="10" /></td>
                         <td>Date of Birth:</td>
                         <td><input name="DateOfBirth" type="text" /></td>
                     </tr>
@@ -153,23 +122,18 @@
                 <script type="text/javascript" src="/usersignup.js"></script>
 
             </form>
-            <!-- <p>
-                    Password: <input type="text" name="password" size="8" minlength="8" maxlength="8">
-                    <script type="text/javascript" src="/usersignup.js"></script>
-                </p>
-            </form> -->
         </div>
 
         <div class="sign_in">
             <h2>Already have a Student Account?</h2>
             <input class="button" type="submit" value="Sign In" onclick="myFunction()">
-            <!-- <script>
-                    function myFunction() {
-                        window.location.href="./student_signIn.htm";
-                    }
-                </script>
-            </div> -->
+            <script>
+                function myFunction() {
+                    window.location.href = "./student_signIn.htm";
+                }
+            </script>
         </div>
+    </div>
 </body>
 
 </html>
