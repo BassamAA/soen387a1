@@ -4,28 +4,26 @@
 		<html xmlns = "http://www.w3.org/1999/xhtml">
 			<head>
 				<title>Search Results</title>
-			<style type = "text/css">
-		        body  { font-family: arial, sans-serif;
-		                background-color: #F0E68C } 
-		         table { background-color: #ADD8E6 }
-		         td    { padding-top: 2px;
-		                 padding-bottom: 2px;
-		                 padding-left: 4px;
-		                 padding-right: 4px;
-		                 border-width: 1px;
-		                 border-style: inset }
-		      </style>
+				<style type = "text/css">
+					body  { font-family: arial, sans-serif;
+							background-color: #F0E68C } 
+					table { background-color: #ADD8E6 }
+					td    { padding-top: 2px;
+							padding-bottom: 2px;
+							padding-left: 4px;
+							padding-right: 4px;
+							border-width: 1px;
+							border-style: inset }
+				</style>
 		   </head>
 		   <body>
 		      <?php
-		         extract( $_POST );
+		        extract( $_POST );
 		
 		         // build SELECT query
-		      
-				 $query="INSERT INTO Students (ID, Code)
-				 VALUES ('$ID','$Code')";
-				 
-				 
+				$query="INSERT INTO Students (ID, Code)
+				VALUES ('$ID','$Code')";
+				
 		         // Connect to MySQL
 		         if ( !( $database = mysqli_connect( "localhost",
 		            "root", "" ) ) )                      
