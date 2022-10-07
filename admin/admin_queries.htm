@@ -1,67 +1,74 @@
 <!DOCTYPE html">
-		<html >
-	   <head>
-		      <title>Administrator Page</title>
-		      <style type = "text/css">
-               .box {
-                  background-color: gainsboro;
-                  position:relative;
-                  transform: translate(0, -3%);
-                  margin: auto;
-                  align-items: center;
-                  width: 700px;
-                  height: 600px;
-                  padding: 10px;
-                  border: 4px solid gray;
-                  border-radius: 15px;
-                  box-shadow: 5px 5px;
-               }
-               .heading{
-                  font-family: Verdana;
-                  font-size: 15px;
-                  text-align: center;
-               }
-               .subheading{
-                  padding-top: 2%;
-                  padding-left: 2%;
-                  font-family: Verdana;
-                  font-size: 20px;
-               }
-               .div_form{
-                  padding-left: 2%;
-                  font-family: Verdana;
-               }
-               .button{
-                  padding-left: 2%;
-                  font-family: Verdana;
-                  font-size: 15px;
-               }
-               .button:hover {
-                  background-color: rgb(241, 241, 241);
-               }
-                     
-		      </style>
-		   </head>
-         <div class="dropdown">
-               <link href="../navigate.css" rel="stylesheet">
-               <button class="dropbtn">Navigate</button>
-               <div class="dropdown-content">
-                  <a href="welcome.htm">Welcome</a>
-                  <a href="newstudent.htm">Create Student Account</a>
-                  <a href="newadmin.htm">Create Admin Account</a>
-                  <a href="student_signIn.htm">Student Log In</a>
-                  <a href="admin_signIn.htm">Admin Log In</a>
-               </div>
-         </div>
-		   <body>
-		      
-            <div class="box">
-               <div class="heading">
-                  <h2>Administrator Form</h2>
-               </div>
-               <h2 class="subheading">Create a course:</h2>
-               <div class="div_form">
-                  <!-- <form method = "post" action = "page3.php">
+<html>
+
+<head>
+   <title>Administrator Page</title>
+   <style type="text/css">
+      .box {
+         background-color: gainsboro;
+         position: relative;
+         transform: translate(0, -3%);
+         margin: auto;
+         align-items: center;
+         width: 700px;
+         height: 600px;
+         padding: 10px;
+         border: 4px solid gray;
+         border-radius: 15px;
+         box-shadow: 5px 5px;
+      }
+
+      .heading {
+         font-family: Verdana;
+         font-size: 15px;
+         text-align: center;
+      }
+
+      .subheading {
+         padding-top: 2%;
+         padding-left: 2%;
+         font-family: Verdana;
+         font-size: 20px;
+      }
+
+      .div_form {
+         padding-left: 2%;
+         font-family: Verdana;
+      }
+
+      .button {
+         padding-left: 2%;
+         font-family: Verdana;
+         font-size: 15px;
+      }
+
+      .button:hover {
+         background-color: rgb(241, 241, 241);
+      }
+   </style>
+</head>
+<div class="dropdown">
+   <link href="../navigate.css" rel="stylesheet">
+   <button class="dropbtn">Navigate</button>
+   <div class="dropdown-content">
+      <a href="../welcome.htm">Welcome</a>
+      <a href="../student/student_sign_up.htm">Create Student Account</a>
+      <a href="admin_sign_up.htm">Create Admin Account</a>
+      <a href="../student/student_login.htm">Student Log In</a>
+      <a href="admin_login.htm">Admin Log In</a>
+      
+   </div>
+</div>
+
+<body>
+
+   <div class="box">
+      <div class="heading">
+         <h2>Administrator Form</h2>
+      </div>
+      <h2 class="subheading">Query Forms:</h2>
+      <div class="div_form">
+         <!-- <form method = "post" action = "page3.php">
                   <p>
                      Course Code : <input name = "Code" type = "int" value = "0" size = "10"/><br />
                   </p>
@@ -86,29 +93,81 @@
                <h2 class="subheading">Display a course:</h2>
                <form\> -->
 
-               <form method = "post" action = "page2.php">
-                  <div class="div_form">
-                     <p>Select a field to display:
-                        <!-- add a select box containing options --> 
-                        <!-- for SELECT query -->
-                        <select name = "select">                   
-                           <option selected = "selected">*</option>
-                           <option>List of students in a course </option>   
-                           <p> 
-                              Course Code : <input name = "Code" type = "int" value = "0" size = "10"/><br />
-                           </p>              
-                           <option>Courses taken by student</option>  
-                           <p>
-                              Student ID :
-                              <input name = "ID" type = "int" value = "0" size = "10"/><br />                                   
-                           </p>
-                        </select></p>                              
-                     <input class="button" type = "submit" value = "Send Query" />
-                  </div>
-               <br/>
-               </form>
-               
-            </div>
+         <form method="post" action="admin_queries.php">
+            <!--
+            <div class="div_form1">
+               <p>Select a field to display:
 
-		   </body>
-		</html>
+                  <select name="select">
+                     <option selected="selected">*</option>
+                     <option>List of students in a course </option>
+                     <option>List of courses taken by a student</option>
+                     <p> <br />
+                        Course Code : <input name="Code" type="int" value="0" size="10" /><br />
+                     </p>
+                     <option>Courses taken by student</option>
+                     <p>
+                        Student ID :
+                        <input name="ID" type="int" value="0" size="10" /><br />
+                     </p>
+                  </select>
+               </p>
+               <input class="button" type="submit" value="Send Query" />
+            </div>
+            <br />
+              -->
+
+
+
+            <div class="div_form1">
+               <p>Select a field to display:
+                  <select name="select">
+                     <option selected="selected">*</option>
+                     <option>List of students in a course </option>
+                     <option>List of courses taken by a student</option>
+                  </select>
+               </p>
+               <p>Enter Course Code or Student ID here:
+                  <input name="input" type="text" max="8" />
+               </p>
+               <input class="button" type="submit" value="Send Query" />
+            </div>
+         </form>
+
+
+
+         <!-- <form method="post" action="admin_queries.php">
+                  <div class="div_form1">
+                     <table>
+                        <tr>
+                           <td>List of courses by Student ID</td>
+                           <td>Enter Student ID here:</td>
+                           <td><input name = "ID" type = "int" size = "10"/></td>
+                           <td><input class="button" type = "submit" value="Send Query" /></td>
+                        </tr>
+                     </table>
+                  </div>
+               </form>
+
+               <br /> 
+               <br /> 
+
+               <form method="post" action="admin_queries.php">
+                  <div class="div_form2">
+                     <table>
+                        <tr>
+                           <td>List of students by S</td>
+                           <td>Enter Student ID here:</td>
+                           <td><input name = "ID" type = "int" size = "10"/></td>
+                           <td><input class="button" type = "submit" value="Send Query" /></td>
+                        </tr>
+                     </table>
+                  </div>
+               </form> -->
+
+
+      </div>
+
+</body>
+
+</html>

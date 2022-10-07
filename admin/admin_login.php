@@ -34,13 +34,13 @@
 
 
 	// build SELECT query
-	$query = "SELECT PW from Administrator where EmploymentID=$EmploymentID";
+	$query = "SELECT PW from Administrator where EmploymentID='$EmploymentID'";
 
 	// Connect to MySQL
 	if (!($database = mysqli_connect(
 		"localhost",
 		"root",
-		""
+		"wrgWM3K52n8fk3mC"
 	)))
 		die("Could not connect to database </body></html>");
 
