@@ -1,5 +1,3 @@
-<!-- php file to create new administrator -->
-
 <!-- PHP file used to create new student -->
 
 <!DOCTYPE html>
@@ -10,11 +8,11 @@
 	<style type="text/css">
 		body {
 			font-family: arial, sans-serif;
-			background-color: #F0E68C
+			background-color: white
 		}
 
 		table {
-			background-color: #ADD8E6
+			background-color: white
 		}
 
 		td {
@@ -31,7 +29,7 @@
 <body>
 	<?php
 	//  extract( $_POST );
-	$EmploymentID = $_POST["EmploymentID"];
+	$ID = $_POST["ID"];
 	$FirstName = $_POST["FirstName"];
 	$LastName = $_POST["LastName"];
 	$Address = $_POST["Address"];
@@ -40,33 +38,33 @@
 	$Email = $_POST["Email"];
 	$PW = $_POST["PW"];
 
+
 	// build INSERT query
 
-	$query = "INSERT INTO Administrator (EmploymentID, FirstName, LastName, Address, Email, PhoneNumber, DateOfBirth, PW)
-				VALUES ('$EmploymentID','$FirstName','$LastName','$Address','$Email','$PhoneNumber','$DateOfBirth', '$PW')";
-
+	$query = "INSERT INTO Student (ID,FirstName,LastName,Address,Email,PhoneNumber,DateOfBirth,PW)
+				VALUES ('$ID','$FirstName','$LastName','$Address','$Email','$PhoneNumber','$DateOfBirth','$PW')";
 
 	// Connect to MySQL
 	if (!($database = mysqli_connect(
 		"localhost",
 		"root",
-		"wrgWM3K52n8fk3mC"
+		""
 	)))
 		die("Could not connect to database </body></html>");
 
+
 	// open University database
 	if (!mysqli_select_db($database, "University"))
-		die("Could not open products database </body></html>");
+		die("Could not open University database </body></html>");
 
 
 	// query University database
 	if (!($result = mysqli_query($database, $query))) {
 		print("Could not execute query! <br />");
 		die(mysqli_error() . "</body></html>");
-	} // end if
-	else {
-		print("Admin was succesfully registered");
-	}
+	} else {
+		print("You were succesfully registered");
+	};
 	mysqli_close($database);
 	?>
 	<!-- end PHP script -->

@@ -1,0 +1,105 @@
+<!-- html page for student sign in -->
+
+<!DOCTYPE html">
+
+<html>
+
+<head>
+	<title>Student page</title>
+</head>
+<style type="text/css">
+	h2 {
+		font-family: Verdana;
+		text-align: center;
+	}
+
+	input {
+		color: rgb(0, 0, 0);
+		font-weight: bold
+	}
+
+	.box {
+		background-color: gainsboro;
+		position: relative;
+		top: 40%;
+		transform: translate(0, -50%);
+		margin: auto;
+		align-items: center;
+		width: 350px;
+		height: 300px;
+		padding: 10px;
+		border: 4px solid gray;
+		border-radius: 15px;
+		box-shadow: 5px 5px;
+	}
+
+	.student_info {
+		padding-top: 5%;
+		padding-left: 5%;
+		font-family: Verdana;
+
+	}
+
+	.button_div {
+		padding-left: 22%;
+		font-family: Verdana;
+		font-size: 15px;
+	}
+
+	.button {
+		font-family: Verdana;
+		font-size: 15px;
+		padding-left: 10%;
+		padding-right: 10%;
+	}
+
+	.button:hover {
+		background-color: rgb(241, 241, 241);
+	}
+
+
+</style>
+
+<div class="dropdown">
+	<link href="../navigate.css" rel="stylesheet">
+	<button class="dropbtn">Navigate</button>
+	<div class="dropdown-content">
+		<a href="welcome.htm">Welcome</a>
+		<a href="newstudent.htm">Create Student Account</a>
+		<a href="newadmin.htm">Create Admin Account</a>
+		<a href="student_signIn.htm">Student Log In</a>
+		<a href="admin_signIn.htm">Admin Log In</a>
+	</div>
+</div>
+
+<body>
+	<div class="box">
+		<h2>Student Login</h2>
+		<form method="post" action="student_login.php">
+			<div class="student_info">
+
+				<table class="table">
+					<tr>
+						<td>Student ID:</td>
+						<td><input name="ID" type="int" max="8" /></td>
+					</tr>
+					<tr>
+						<td>Password:</td>
+						<td><input name="PW" type="int" max="8" /></td>
+					</tr>
+					<tr>
+						<td><br /></td>
+					</tr>
+					<tr>
+						<td><input class="button" type="submit" value="Sign In" /></td>
+					</tr>
+				</table>
+
+
+			</div>
+	</div>
+	</form>
+	</div>
+</body>
+
+</html>

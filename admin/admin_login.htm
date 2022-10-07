@@ -26,7 +26,7 @@
             	}
 				.admin_info{
 					padding-top: 5%;
-					padding-left: 22%;
+					padding-left: 5%;
 					font-family: Verdana;
 					
 				}
@@ -46,7 +46,7 @@
 		</head>
 
 		<div class="dropdown">
-			<link href="navigate.css" rel="stylesheet">
+			<link href="../navigate.css" rel="stylesheet">
 			<button class="dropbtn">Navigate</button>
 			<div class="dropdown-content">
 				<a href="welcome.htm">Welcome</a>
@@ -60,16 +60,38 @@
 		<body>
 			<div class="box">
 				<h2>Administrator Login</h2>
-				<form method = "post" action = "page1.php">
+				<form method = "post" action = "admin_login.php">
 				<div class="admin_info">
-					<p>Admin ID: 
-					<input name = "ID" type = "int"  size = "10"/><br /></p>
+
+
+					<!-- <p>Employment ID: 
+					<input name = "EmploymentID" type = "int"  size = "10"/><br /></p>
 					<p>Password: 
-					<input name = "Code" type = "int"  size = "10" />
+					<input name = "PW" type = "int"  size = "10" />
 					</p><br/>
 					<div class="button_div">
 						<input class="button"type = "submit" value= "Sign In" />
-					</div>
+					</div> -->
+
+
+					<table class="table">
+						<tr>
+							<td>Employment ID:</td>
+							<td><input name="EmploymentID" type="int" max="8" /></td>
+						</tr>
+						<tr>
+							<td>Password:</td>
+							<td><input name="PW" type="int" max="8" /></td>
+						</tr>
+						<tr>
+							<td><br /></td>
+						</tr>
+						<tr>
+							<td><input class="button" type="submit" value="Sign In" /></td>
+						</tr>
+					</table>
+
+
 				</div>
 				</form>
 			</div>

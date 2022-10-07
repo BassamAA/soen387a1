@@ -8,12 +8,13 @@
         .box {
             background-color: gainsboro;
             position: relative;
-            transform: translate(0, -3%);
-            margin: auto;
+            /* top: 4%; */
             top: 10%;
+            transform: translate(0, 1%);
+            margin: auto;
             align-items: center;
             width: 700px;
-            height: 440px;
+            height: 400px;
             padding: 10px;
             border: 4px solid gray;
             border-radius: 15px;
@@ -26,11 +27,12 @@
             font-family: Verdana;
             font-size: 12px;
             top: 15%;
+
         }
 
         .div_form {
             padding-left: 2%;
-            line-height: 10px;
+            line-height: 20px;
             font-family: Verdana;
             font-size: 15px;
         }
@@ -45,18 +47,17 @@
             background-color: rgb(241, 241, 241);
         }
 
-        .signin {
+        .sign_in {
             padding-left: 2%;
             display: inline-block;
             margin-top: 10px;
             line-height: 30px;
             font-family: Verdana;
             font-size: 12px;
-            top: 15%;
         }
 
         .table td {
-            padding: 0 9px;
+            padding: 0 10px;
         }
     </style>
 </head>
@@ -76,57 +77,65 @@
 <body>
     <div class="box">
         <div class="welcome">
-            <h1>Welcome</h1>
-            <h2>Please fill in all fields below in order to create an Administrator Account:</h2>
+            <!-- <h1>Welcome</h1> -->
+            <h2>Please fill in all fields below in order to create a new course:</h2>
         </div>
 
         <div class="div_form">
-            <form name="form" action="newadmin.php" method="post">
+            <!-- onsubmit="return validateForm()" -->
+            <form name='form' action="newcourse.php" method="post">
+
+
                 <table class="table">
                     <tr>
-                        <td>Employment ID:</td>
-                        <td><input name="EmploymentID" type="int" max="10" /></td>
-                        <td>Password:</td>
-                        <td><input name="PW" type="int" max="8"></td>
+                        <td>Course Code:</td>
+                        <td><input name="CourseCode" type="text" max="10" /></td>
+                        <td>Title:</td>
+                        <td><input name="Title" type="text" max="8"></td>
                     </tr>
                     <tr>
-                        <td>First Name:</td>
-                        <td><input name="FirstName" type="text" /></td>
-                        <td>Last Name:</td>
-                        <td><input name="LastName" type="text" /></td>
+                        <td>Semester:</td>
+                        <td><input name="Semester" type="text" /></td>
+                        <td>Instructor:</td>
+                        <td><input name="Instructor" type="text" /></td>
                     </tr>
                     <tr>
-                        <td>Adress:</td>
-                        <td><input name="Address" type="text" /></td>
-                        <td>Email:</td>
-                        <td><input name="Email" type="text" /></td>
+                        <td>Room:</td>
+                        <td><input name="Room" type="text" /></td>
+                        <td>Days:</td>
+                        <td><input name="Days" type="text" /></td>
                     </tr>
                     <tr>
-                        <td>Phone Number:</td>
-                        <td><input name="PhoneNumber" type="int" max="10" /></td>
-                        <td>Date of Birth:</td>
-                        <td><input name="DateOfBirth" type="text" /></td>
+                        <td>Times:</td>
+                        <td><input name="Times" type="text" value="HH:MM:SS" /></td>
+                        <td>Start Date:</td>
+                        <td><input name="Start_date" type="text" value="YYYY-MM-DD" /></td>
                     </tr>
+                    <tr>
+                        <td>End Date:</td>
+                        <td><input name="End_date" type="text" value="YYYY-MM-DD" /></td>                    </tr>
                     <tr>
                         <td><br /></td>
                     </tr>
                     <tr>
-                        <td><input class="button" type="submit" value="Create New Admin" /></td>
+                        <td><input class="button" type="submit" value="Create Course" /></td>
                     </tr>
                 </table>
+
+                <script type="text/javascript" src="/usersignup.js"></script>
+
             </form>
         </div>
 
-
-        <div class="signin">
-            <h2>Already have an Administrator Account?</h2>
-            <input class="button" type="submit" value="Sign In" onClick="myFunction()">
+        <!-- <div class="sign_in">
+            <h2>Already have a Student Account?</h2>
+            <input class="button" type="submit" value="Sign In" onclick="myFunction()">
             <script>
                 function myFunction() {
-                    window.location.href = "./admin_signIn.htm";
+                    window.location.href = "./student_signIn.htm";
                 }
             </script>
-        </div>
+        </div> -->
     </div>
 </body>
 
