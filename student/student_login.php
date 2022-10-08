@@ -53,7 +53,7 @@
 	$result = mysqli_fetch_assoc($result);
 	foreach ($result as $value)
 		$pw_in_db = (int)$value;
-
+		
 
 	if ($pw_in_db == $PW_user_input) {
 		// password matches
