@@ -40,7 +40,7 @@
 	if (!($database = mysqli_connect(
 		"localhost",
 		"root",
-		""
+		"wrgWM3K52n8fk3mC"
 	)))
 		die("Could not connect to database </body></html>");
 
@@ -58,7 +58,7 @@
 	if ($pw_in_db == $PW_user_input) {
 		// password matches
 		// redirect to course enrollment page
-		header("location:student_course_enrollment.htm");exit;
+		header("location:./student_course_enrollment.php");exit;
 		// echo "<script type='text/javascript'>window.top.location='welcome.htm';</script>"; exit;
 	} else {
 		print("Invalid password, go back and try again!");
