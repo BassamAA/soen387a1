@@ -79,9 +79,20 @@ function validateForm() {
     }
 
     // endDate
+    end = endDate.split('-');
     if (endDate == "") {
         alert("endDate must be filled out!");
         document.forms["form"]["End_date"].focus();
+        return false;
+    }
+    else if(end[0] < currdate){
+        alert("Year is invalid, must be current year or upcoming year");
+        document.forms["form"]["Start_date"].focus();
+        return false;
+    }
+    else if(end[0] < start[0]){
+        alert("Year is invalid, must be past start year");
+        document.forms["form"]["Start_date"].focus();
         return false;
     }
 
