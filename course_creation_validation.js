@@ -64,9 +64,15 @@ function validateForm() {
         return false;
     }
 
-    // startDate 
+    // startDate : YYYY-MM-DD
+    start = startDate.split('-');
     if (startDate == "") {
         alert("startDate must be filled out!");
+        document.forms["form"]["Start_date"].focus();
+        return false;
+    }
+    else if(start[0] < 2022){
+        alert("Year is invalid, must be current year or upcoming year");
         document.forms["form"]["Start_date"].focus();
         return false;
     }
