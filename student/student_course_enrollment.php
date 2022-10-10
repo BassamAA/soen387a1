@@ -2,7 +2,7 @@
 <html>
 
 <head>
-	<title>Administrator Page</title>
+	<title>Enroll to a course</title>
 	<style type="text/css">
 		.box {
 			background-color: gainsboro;
