@@ -3,7 +3,7 @@
 <html>
 
 <head>
-    <title>Create users</title>
+    <title>Create Student</title>
     <style>
         .box {
             background-color: gainsboro;
@@ -14,7 +14,7 @@
             margin: auto;
             align-items: center;
             width: 700px;
-            height: 400px;
+            height: 420px;
             padding: 10px;
             border: 4px solid gray;
             border-radius: 15px;
@@ -27,7 +27,6 @@
             font-family: Verdana;
             font-size: 12px;
             top: 15%;
-
         }
 
         .div_form {
@@ -38,7 +37,8 @@
         }
 
         .button {
-            padding-left: 2%;
+            position: relative;
+            left: 4%;
             font-family: Verdana;
             font-size: 15px;
         }
@@ -57,8 +57,9 @@
         }
 
         .table td {
-            padding: 0 10px;
+            padding: 0 6px;
         }
+        .resizedTextbox {width: 179px; height: 24px}
     </style>
 </head>
 
@@ -87,25 +88,25 @@
                 <table class="table" >
                     <tr>
                         <td>Student ID:</td>
-                        <td><input name="ID" type="int" max="10" placeholder="40121437"/></td>
+                        <td><input class="resizedTextbox" name="ID" type="int" max="10" placeholder="40121437"/></td>
                         <td>Password:</td>
-                        <td><input name="PW" type="int" max="8" placeholder="xxxxxxxx"></td>
+                        <td><input class="resizedTextbox" name="PW" type="int" max="8" placeholder="xxxxxxxx"></td>
                     </tr>
                     <tr>
                         <td>First Name:</td>
-                        <td><input name="FirstName" type="text" placeholder="John"/></td>
+                        <td><input class="resizedTextbox" name="FirstName" type="text" placeholder="John"/></td>
                         <td>Last Name:</td>
-                        <td><input name="LastName" type="text" placeholder="Doe" /></td>
+                        <td><input class="resizedTextbox" name="LastName" type="text" placeholder="Doe" /></td>
                     </tr>
                     <tr>
                         <td>Address:</td>
-                        <td><input name="Address" type="text" placeholder="200 Rue Guy"/></td>
+                        <td><input class="resizedTextbox" name="Address" type="text" placeholder="200 Rue Guy"/></td>
                         <td>Email:</td>
-                        <td><input name="Email" type="text" placeholder="johndoe@gmail.com"/></td>
+                        <td><input class="resizedTextbox" name="Email" type="text" placeholder="johndoe@gmail.com"/></td>
                     </tr>
                     <tr>
                         <td>Phone Number:</td>
-                        <td><input name="PhoneNumber" type="int" max="10" placeholder="xxx xxx xxxx" /></td>                        
+                        <td><input class="resizedTextbox" name="PhoneNumber" type="int" max="10" placeholder="xxx xxx xxxx" /></td>                        
                     </tr>
                     <tr>
                         <td>
