@@ -90,43 +90,43 @@
 
         <div class="div_form">
             <!-- onsubmit="return validateForm()" -->
-            <form name='form' action="newcourse.php" method="post">
+            <form name='form' action="newcourse.php" method="post" onsubmit="return validateForm()">
                 <table class="table">
                     <tr>
                         <td>Course Code:</td>
-                        <td><input name="CourseCode" type="text" max="10" /></td>
+                        <td><input name="CourseCode" type="text" max="10" placeholder="COMP 335"/></td>
                         <td>Title:</td>
-                        <td><input name="Title" type="text" max="8"></td>
+                        <td><input name="Title" type="text" max="8" placeholder="Intro Theoretical Comp"></td>
                     </tr>
                     <tr>
                         <td>Semester:</td>
-                        <td><input name="Semester" type="text" /></td>
+                        <td><input name="Semester" type="text" placeholder="Fall"/></td>
                         <td>Instructor:</td>
-                        <td><input name="Instructor" type="text" /></td>
+                        <td><input name="Instructor" type="text" placeholder="John Doe"/></td>
                     </tr>
                     <tr>
                         <td>Room:</td>
-                        <td><input name="Room" type="text" /></td>
+                        <td><input name="Room" type="text" placeholder="H561"/></td>
                         <td>Days:</td>
-                        <td><input name="Days" type="text" /></td>
+                        <td><input name="Days" type="text" placeholder="MO, TU, WED, TH, FR"/></td>
                     </tr>
                     <tr>
                         <td>Times:</td>
-                        <td><input name="Times" type="text" value="HH:MM:SS" /></td>
+                        <td><input name="Times" type="text" placeholder="HH:MM:SS" /></td>
                         <td>Start Date:</td>
-                        <td><input name="Start_date" type="text" value="YYYY-MM-DD" /></td>
+                        <td><input name="Start_date" type="text" placeholder="YYYY-MM-DD" /></td>
                     </tr>
                     <tr>
                         <td>End Date:</td>
-                        <td><input name="End_date" type="text" value="YYYY-MM-DD" /></td>                    </tr>
+                        <td><input name="End_date" type="text" placeholder="YYYY-MM-DD" /></td>                    </tr>
                     <tr>
                         <td><br /></td>
                     </tr>
                     <tr>
-                        <td><input class="button" type="submit" value="Create Course" onclick="validateForm()" /></td>
+                        <td><input class="button" type="submit" placeholder="Create Course"/></td>
                     </tr>
                 </table>
-                <script type="text/javascript" src="/course_creation_validation.js"></script>
+                <script type="text/javascript" src="../course_creation_validation.js"></script>
             </form>
         </div>
         <div class="welcome">

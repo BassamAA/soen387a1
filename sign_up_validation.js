@@ -23,7 +23,7 @@ function validateForm() {
         alert("ID must be of length 8");
         document.forms["form"]["ID"].focus();
         return false;
-    };
+    }
 
 
     // validating the First Name using regex 
