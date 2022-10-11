@@ -82,9 +82,7 @@
         </div>
 
         <div class="div_form">
-            <!-- onsubmit="return validateForm()" -->
-            <form name='form' action="student_sign_up.php" method="post">
-
+            <form name='form' action="student_sign_up.php" method="post" onsubmit="return validateForm()">
 
                 <table class="table">
                     <tr>
@@ -100,7 +98,7 @@
                         <td><input name="LastName" type="text" /></td>
                     </tr>
                     <tr>
-                        <td>Adress:</td>
+                        <td>Address:</td>
                         <td><input name="Address" type="text" /></td>
                         <td>Email:</td>
                         <td><input name="Email" type="text" /></td>
@@ -115,11 +113,10 @@
                         <td><br /></td>
                     </tr>
                     <tr>
-                        <td><input class="button" type="submit" value="Sign Up" /></td>
+                        <td><input class="button" type="submit" value="Sign Up"/></td>
                     </tr>
                 </table>
-
-                <script type="text/javascript" src="../sign_up_validation.js"></script>
+                <script type="text/javascript" src="../sign_up_validation.js" ></script>
 
             </form>
         </div>
