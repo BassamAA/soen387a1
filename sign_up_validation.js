@@ -7,7 +7,9 @@ function validateForm() {
     let Email = document.forms["form"]["Email"].value;
     let Address = document.forms["form"]["Address"].value;
     let PhoneNumber = document.forms["form"]["PhoneNumber"].value;
-    let DateOfBirth = document.forms["form"]["DateOfBirth"].value;
+    let BirthdayDay = document.forms["form"]["BirthdayDay"].value;
+    let BirthdayMonth = document.forms["form"]["BirthdayMonth"].value;
+    let BirthdayYear = document.forms["form"]["BirthdayYear"].value;
 
     // validating the user ID
     // must be 8 digits long
@@ -52,6 +54,7 @@ function validateForm() {
         return false;
     }
 
+
     // validating address
     // must not be empty
     if (Address == "") {
@@ -91,45 +94,43 @@ function validateForm() {
         return false;
     }
 
-
-    // validating date of birth
-    // must have format: YYYY-MM-DD
-    // must be 18
-    let regDateOfBirth = "^((?:19|20)[0-9][0-9])-(0?[1-9]|1[012])-(0?[1-9]|[12][0-9]|3[01])$";
-    if (DateOfBirth = "") {
-        alert("Date of Birth must be filled out!");
-        document.forms["form"]["DateOfBirth"].focus();
-        return false;
-    }
-    else if (!regDateOfBirth.test(DateOfBirth)) {
-        alert("Invalid Date of Birth format!");
-        document.forms["form"]["DateOfBirth"].focus();
-        return false;
-    }
-
-    DateOfBirth = DateOfBirth.split('-');
+    // validating birthday
+    // making sure user is over 18
     let thisYear = new Date().getFullYear();
-    let birthYear = parseInt(DateOfBirth[2], 10);
-    let birthMonth = parseInt(DateOfBirth[1], 10);
-    let birthDay = parseInt(DateOfBirth[0], 10);
+    let birthDay = parseInt(BirthdayDay, 10);
+    let birthMonth = parseInt(BirthdayMonth, 10);
+    let birthYear = parseInt(BirthdayYear, 10);
 
-    if (birthDay > 31) {
+    if (BirthdayDay == "") {
+        alert("Birth Day must be filled out!");
+        document.forms["form"]["BirthdayDay"].focus();
+        return false;
+    }
+    else if (birthDay >= 31) {
         alert("Invalid Birth Day!");
-        document.forms["form"]["DateOfBirth"].focus();
+        document.forms["form"]["BirthdayDay"].focus();
         return false;
     }
-    if (birthMonth > 12) {
+    if (BirthdayMonth == "") {
+        alert("Birth Month must be filled out!");
+        document.forms["form"]["BirthdayMonth"].focus();
+        return false;
+    }
+    else if (birthMonth > 12) {
         alert("Invalid Birth Month!");
-        document.forms["form"]["DateOfBirth"].focus();
+        document.forms["form"]["BirthdayMonth"].focus();
         return false;
     }
-
-    if (birthYear > (thisYear - 18)) {
+    if (BirthdayYear == "") {
+        alert("Birth Year must be filled out!");
+        document.forms["form"]["BirthdayYear"].focus();
+        return false;
+    }
+    else if (birthYear > (thisYear - 18)) {
         alert("Invalid Date of Birth. Must be 18 years old!");
-        document.forms["form"]["DateOfBirth"].focus();
+        document.forms["form"]["BirthdayYear"].focus();
         return false;
     }
-
 
     return true;
 };
