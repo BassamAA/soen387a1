@@ -48,7 +48,7 @@
 	if (!($database = mysqli_connect(
 		"localhost",
 		"root",
-		""
+		"",
 	)))
 		die("Could not connect to database </body></html>");
 
