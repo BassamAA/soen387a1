@@ -57,7 +57,7 @@ CREATE TABLE Course (
   End_date date NOT NULL
 );
 
---------------------------------------------------------
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `EnrolledIn`
