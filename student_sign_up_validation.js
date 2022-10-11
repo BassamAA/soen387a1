@@ -2,6 +2,7 @@
 function validateForm() {
     // id, name, last name, email, address, phone, date birth
     let Id = document.forms["form"]["ID"].value;
+    let PW = document.forms["form"]["PW"].value;
     let FirstName = document.forms["form"]["FirstName"].value;
     let LastName = document.forms["form"]["LastName"].value;
     let Email = document.forms["form"]["Email"].value;
@@ -24,6 +25,18 @@ function validateForm() {
         document.forms["form"]["ID"].focus();
         return false;
     }
+
+        // Validating password
+        if (PW == ""){
+            alert("Password must be filled out!");
+            document.forms["form"]["PW"].focus();
+            return false;
+        }
+        if (PW.length != 8){
+            alert("Password must 8 characters!");
+            document.forms["form"]["PW"].focus();
+            return false;
+        }
 
 
     // validating the First Name using regex 
