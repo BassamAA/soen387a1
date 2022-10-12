@@ -26,17 +26,17 @@ function validateForm() {
         return false;
     }
 
-        // Validating password
-        if (PW == ""){
-            alert("Password must be filled out!");
-            document.forms["form"]["PW"].focus();
-            return false;
-        }
-        if (PW.length != 8){
-            alert("Password must 8 characters!");
-            document.forms["form"]["PW"].focus();
-            return false;
-        }
+    // Validating password
+    if (PW == ""){
+        alert("Password must be filled out!");
+        document.forms["form"]["PW"].focus();
+        return false;
+    }
+    if (PW.length != 8){
+        alert("Password must 8 characters!");
+        document.forms["form"]["PW"].focus();
+        return false;
+    }
 
 
     // validating the First Name using regex 
