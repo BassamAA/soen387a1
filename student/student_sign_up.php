@@ -34,14 +34,13 @@
 	$LastName = $_POST["LastName"];
 	$Address = $_POST["Address"];
 	$PhoneNumber = $_POST["PhoneNumber"];
-	// $DateOfBirth = $_POST["DateOfBirth"];
 	$birthday_day = $_POST["BirthdayDay"];
     $birthday_month = $_POST["BirthdayMonth"];
     $birthday_year = $_POST["BirthdayYear"];
 	$Email = $_POST["Email"];
 	$PW = $_POST["PW"];
 
-	$DateOfBirth = (int)$birthday_year.'-'+(int)$birthday_month.'-'.(int)$birthday_day;
+	$DateOfBirth = (int)$birthday_year.'-'.(int)$birthday_month.'-'.(int)$birthday_day;
 	// build INSERT query
 
 	$query = "INSERT INTO Student (ID,FirstName,LastName,Address,Email,PhoneNumber,DateOfBirth,PW)
