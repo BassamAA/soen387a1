@@ -111,7 +111,6 @@
 				die(mysqli_error() . "</body></html>");
 			}
 
-			// print("<br />");
 			print("<table>");
 
 			$row = mysqli_fetch_assoc($query_col_names);
@@ -139,7 +138,7 @@
 
 			print("<br />");
 
-			print("<p>select a course to enroll in:</p>");
+			print("<p>Select a course to enroll in:</p>");
 
 			print("<select name='select'>");
 
