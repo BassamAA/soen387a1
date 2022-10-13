@@ -11,34 +11,34 @@ function validateForm() {
     let endDate = document.forms["form"]["End_date"].value;
 
 
-    // // Course Code
-    // let corsecode_array = courseCode.split(" ")
-    // let course_name = corsecode_array[0]
-    // let course_num = corsecode_array[1]
+    // Course Code
+    let corsecode_array = courseCode.split(" ")
+    let course_name = corsecode_array[0]
+    let course_num = corsecode_array[1]
 
-    // if (courseCode == "") {
-    //     alert("Course Code must be filled out!");
-    //     document.forms["form"]["CourseCode"].focus();
-    //     return false;
-    // }
-    // else if (length(course_name) != 4) {
-    //     alert("Course Code must be 4 characters.");
-    //     document.forms["form"]["CourseCode"].focus();
-    //     return false;
-    // }
-    // else if (length(course_num) != 3) {
-    //     alert("Course Number must be 3 digits.");
-    //     document.forms["form"]["CourseCode"].focus();
-    //     return false;
-    // }
+    if (courseCode == "") {
+        alert("Course Code must be filled out!");
+        document.forms["form"]["CourseCode"].focus();
+        return false;
+    }
+    else if (length(course_name) != 4) {
+        alert("Course Code must be 4 characters.");
+        document.forms["form"]["CourseCode"].focus();
+        return false;
+    }
+    else if (length(course_num) != 3) {
+        alert("Course Number must be 3 digits.");
+        document.forms["form"]["CourseCode"].focus();
+        return false;
+    }
 
 
-    // // Course Title
-    // if (courseTitle == "") {
-    //     alert("Course Title must be filled out!");
-    //     document.forms["form"]["Title"].focus();
-    //     return false;
-    // }
+    // Course Title
+    if (courseTitle == "") {
+        alert("Course Title must be filled out!");
+        document.forms["form"]["Title"].focus();
+        return false;
+    }
 
 
     // Semester
@@ -56,36 +56,36 @@ function validateForm() {
     }
 
 
-    // // Instructor 
-    // if (instructor == "") {
-    //     alert("Instructor must be filled out!");
-    //     document.forms["form"]["Instructor"].focus();
-    //     return false;
-    // }
+    // Instructor 
+    if (instructor == "") {
+        alert("Instructor must be filled out!");
+        document.forms["form"]["Instructor"].focus();
+        return false;
+    }
 
 
-    // // Room
-    // if (room == "") {
-    //     alert("Room must be filled out!");
-    //     document.forms["form"]["Room"].focus();
-    //     return false;
-    // }
+    // Room
+    if (room == "") {
+        alert("Room must be filled out!");
+        document.forms["form"]["Room"].focus();
+        return false;
+    }
 
 
-    // // days
-    // if (days == "") {
-    //     alert("Days must be filled out!");
-    //     document.forms["form"]["Days"].focus();
-    //     return false;
-    // }
+    // days
+    if (days == "") {
+        alert("Days must be filled out!");
+        document.forms["form"]["Days"].focus();
+        return false;
+    }
 
 
-    // // times
-    // if (times == "") {
-    //     alert("times must be filled out!");
-    //     document.forms["form"]["Times"].focus();
-    //     return false;
-    // }
+    // times
+    if (times == "") {
+        alert("times must be filled out!");
+        document.forms["form"]["Times"].focus();
+        return false;
+    }
 
 
     // startDate : YYYY-MM-DD
@@ -126,11 +126,6 @@ function validateForm() {
         document.forms["form"]["Start_date"].focus();
         return false;
     }
-    // else if(currDay > (startDay+10) ){
-    //     alert("You cannot register more than 10 days past start date");
-    //     document.forms["form"]["Start_date"].focus();
-    //     return false;
-    // }
 
 
     // endDate

@@ -90,11 +90,11 @@
 
         <div class="div_form">
             <!-- onsubmit="return validateForm()" -->
-            <form name='form' action="course_creation_and_query.php" method="post" onsubmit="return validateForm()">
+            <form name='form' action="course_creation.php" method="post" onsubmit="return validateForm()">
                 <table class="table">
                     <tr>
                         <td>Course Code:</td>
-                        <td><input name="CourseCode" type="text" max="10" placeholder="COMP335"/></td>
+                        <td><input name="CourseCode" type="text" max="10" placeholder="COMP 335"/></td>
                         <td>Title:</td>
                         <td><input name="Title" type="text" max="8" placeholder="Intro Theoretical Comp"></td>
                     </tr>
@@ -133,11 +133,11 @@
             <h2 class>Admin Query Forms:</h2>
         </div>
         <div class="div_form2">
-            <form method="post" action="admin_queries.php">
+            <form method="post" action="queries.php">
                 <p>Select a field to display:
                     <select name="select">
                         <option selected="selected">*</option>
-                        <option>List of students in a course </option>
+                        <option>List of students in a course</option>
                         <option>List of courses taken by a student</option>
                     </select>
                 </p>

@@ -39,12 +39,10 @@
 	$birthday_year = $_POST["BirthdayYear"];
 	$Email = $_POST["Email"];
 	$PW = $_POST["PW"];
-	$DateOfBirth = (int)$birthday_year.'-'.(int)$birthday_month.'-'.(int)$birthday_day;
+	$DateOfBirth = $birthday_year . '-' . $birthday_month . '-' . $birthday_day;
 
-	// build INSERT query
-
-	$query = "INSERT INTO Student (ID,FirstName,LastName,Address,Email,PhoneNumber,DateOfBirth,PW)
-				VALUES ('$ID','$FirstName','$LastName','$Address','$Email','$PhoneNumber','$DateOfBirth','$PW')";
+	// build SELECT query
+	$query = "SELECT ID from Student";
 
 	// Connect to MySQL
 	if (!($database = mysqli_connect(
@@ -59,13 +57,32 @@
 	if (!mysqli_select_db($database, "University"))
 		die("Could not open University database </body></html>");
 
+	$result = mysqli_query($database, $query);
+	$result = mysqli_fetch_assoc($result);
 
-	// query University database
-	if (!($result = mysqli_query($database, $query))) {
-		print("Could not execute query! <br />");
-		die(mysqli_error() . "</body></html>");
+	$state = NULL;
+	foreach ($result as $value)
+		if ($ID == (int)$value) {
+			$state = "TRUE";
+		};
+
+
+	if ($state == "FALSE") {
+
+		// build INSERT query
+		$query2 = "INSERT INTO Student (ID,FirstName,LastName,Address,Email,PhoneNumber,DateOfBirth,PW)
+				VALUES ('$ID','$FirstName','$LastName','$Address','$Email','$PhoneNumber','$DateOfBirth','$PW')";
+
+
+		// query University database
+		if (!($result = mysqli_query($database, $query2))) {
+			print("Could not execute query! <br />");
+			die(mysqli_error() . "</body></html>");
+		} else {
+			print("You were succesfully registered");
+		};
 	} else {
-		print("You were succesfully registered");
+		print("This student ID already has an associated account, go back and try again!");
 	};
 	mysqli_close($database);
 	?>

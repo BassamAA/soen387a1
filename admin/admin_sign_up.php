@@ -36,15 +36,20 @@
 	$LastName = $_POST["LastName"];
 	$Address = $_POST["Address"];
 	$PhoneNumber = $_POST["PhoneNumber"];
-	$DateOfBirth = $_POST["DateOfBirth"];
+	$birthday_day = $_POST["BirthdayDay"];
+	$birthday_month = $_POST["BirthdayMonth"];
+	$birthday_year = $_POST["BirthdayYear"];
 	$Email = $_POST["Email"];
 	$PW = $_POST["PW"];
 
-	// build INSERT query
+	// $DateOfBirth = (int)$birthday_year.'-'.(int)$birthday_month.'-'.(int)$birthday_day;
+	$DateOfBirth = $birthday_year . '-' . $birthday_month . '-' . $birthday_day;
 
-	$query = "INSERT INTO Administrator (EmploymentID, FirstName, LastName, Address, Email, PhoneNumber, DateOfBirth, PW)
-				VALUES ('$EmploymentID','$FirstName','$LastName','$Address','$Email','$PhoneNumber','$DateOfBirth', '$PW')";
 
+
+
+	// build SELECT query
+	$query = "SELECT EmploymentID from Administrator";
 
 	// Connect to MySQL
 	if (!($database = mysqli_connect(
@@ -54,19 +59,39 @@
 	)))
 		die("Could not connect to database </body></html>");
 
+
 	// open University database
 	if (!mysqli_select_db($database, "University"))
-		die("Could not open products database </body></html>");
+		die("Could not open University database </body></html>");
+
+	$result = mysqli_query($database, $query);
+	$result = mysqli_fetch_assoc($result);
+
+	foreach ($result as $value)
+		if ($EmploymentID == (int)$value) {
+			$state = "TRUE";
+		};
 
 
-	// query University database
-	if (!($result = mysqli_query($database, $query))) {
-		print("Could not execute query! <br />");
-		die(mysqli_error() . "</body></html>");
-	} // end if
-	else {
-		print("Admin was succesfully registered");
-	}
+
+	if ($state == "FALSE") {
+
+
+		// build INSERT query
+		$query2 = "INSERT INTO Administrator (EmploymentID, FirstName, LastName, Address, Email, PhoneNumber, DateOfBirth, PW)
+				VALUES ('$EmploymentID','$FirstName','$LastName','$Address','$Email','$PhoneNumber','$DateOfBirth', '$PW')";
+
+
+		// query University database
+		if (!($result = mysqli_query($database, $query2))) {
+			print("Could not execute query! <br />");
+			die(mysqli_error() . "</body></html>");
+		} else {
+			print("Admin was succesfully registered");
+		};
+	} else {
+		print("This admin ID already has an associated account, go back and try again!");
+	};
 	mysqli_close($database);
 	?>
 	<!-- end PHP script -->

@@ -46,7 +46,7 @@ CREATE TABLE Administrator (
 --
 
 CREATE TABLE Course (
-  CourseCode varchar(6) NOT NULL PRIMARY KEY,
+  CourseCode varchar(8) NOT NULL PRIMARY KEY,
   Title text NOT NULL,
   Semester text NOT NULL,
   Days text NOT NULL,
@@ -57,14 +57,14 @@ CREATE TABLE Course (
   End_date date NOT NULL
 );
 
---------------------------------------------------------
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `EnrolledIn`
 --
 
 CREATE TABLE EnrolledIn (
-  CourseCode varchar(6) NOT NULL,
+  CourseCode varchar(8) NOT NULL,
   ID int(8) NOT NULL,
   foreign key (CourseCode) references Course(CourseCode),
   foreign key (ID) references Student(ID)

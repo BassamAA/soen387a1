@@ -83,15 +83,14 @@
 		<div class="heading">
 			<h2>Student Enrollment Form</h2>
 		</div>
-		<h2 class="subheading">Courses available:</h2>
+		<!-- <h2 class="subheading">Courses available:</h2> -->
 		<div class="div_form">
 
 			<?php
 			session_start();
 			$ID = $_SESSION["ID"];
+			$CourseCode_selected = $_POST['select'];
 
-
-			$query = "select * from course where CourseCode not in (select coursecode from enrolledin where id= $ID)";
 
 			// Connect to MySQL
 			if (!($database = mysqli_connect(
@@ -105,94 +104,50 @@
 			if (!mysqli_select_db($database, "University"))
 				die("Could not open products database </body></html>");
 
+
+
+
+			// returns the number of courses that a student is already enrolled in for the semester of the selected course
+			$query = "select count(course.coursecode) from enrolledin join course on enrolledin.coursecode = course.coursecode 
+			where semester = (select semester from course where coursecode='$CourseCode_selected')
+			and id = $ID";
+
+
 			// query University database
-			if (!($result_col_names = mysqli_query($database, $query))) {
-				print("Could not execute query! <br />");
-				die(mysqli_error() . "</body></html>");
-			}
-
-
-			
 			if (!($result = mysqli_query($database, $query))) {
 				print("Could not execute query! <br />");
 				die(mysqli_error() . "</body></html>");
 			}
+			$result = mysqli_fetch_assoc($result);
+			foreach ($result as $value)
+				$count = (int)$value;
 
-			// Checking if there are courses in the database
-			if (mysqli_num_rows($result) == 0) {
-				echo "there are no courses available.";
+
+			// returns the semester from the course selected
+			$semester_query = "select semester from course where coursecode = '$CourseCode_selected'";
+			$result = mysqli_query($database, $semester_query);
+			while ($row = mysqli_fetch_array($result)) {
+				$semester = $row['semester'];
+			}
+
+			// check if enrolled in more than 5
+			// 4 since starts at 0
+			if ($count > 4) {
+				print("Sorry, you already have enrolled in 5 courses for the $semester semester");
+				exit();
 			} else {
-
-				// print("<br />");
-
-				print("<table>");
-
-				$row = mysqli_fetch_assoc($result_col_names);
-				foreach ($row as $key => $value) {
-					print("<th>$key</th>");
-				}
-
-				for (
-					$counter = 0;
-					$row = mysqli_fetch_row($result);
-					$counter++
-				) {
-					// build table to display results
-					print("<tr>");
-					foreach ($row as $key => $value)
-						print("<td>$value</td>");
-
-					print("</tr>");
-				}
-
-				print("</table>");
-
-
-
-
-
-
-				// query to get the coursecodes list for the dropdown select menu
-				$query = "select coursecode from course where CourseCode not in (select coursecode from enrolledin where id= $ID)";
-
-
-
-				if (!($result = mysqli_query($database, $query))) {
+				$query2 = "insert into EnrolledIn values ('$CourseCode_selected', $ID);";
+				$count += 1;
+				print("Successfully enrolled in $CourseCode_selected! <br/>");
+				print("You have $count course(s) for the $semester semester.");
+				if (!($result = mysqli_query($database, $query2))) {
 					print("Could not execute query! <br />");
 					die(mysqli_error() . "</body></html>");
 				}
-
-				print("<br />");
-				print("<form method='post' action='enrollment_validation.php'>");
-
-				print("<p>select a course to enroll in:</p>");
-
-				print("<select name='select'>");
-
-				print("<option selected='selected'>*</option>");
-				for ($counter = 0;$row = mysqli_fetch_row($result);$counter++
-				) {
-					foreach ($row as $key => $value);
-					print("<option>$value</option>");
-				}
-				print("</select>");
-				print("<input class='button' type='submit' value='Enroll'/>");
-				print("</form>");
 			}
-			?>
 
+			?>
 		</div>
 </body>
 
-
-<!-- $query_fall = "select count(id) from enrolledin inner join course where enrolledin.CourseCode = 
-			course.CourseCode and course.semester='fall'";
-
-			$query_winter = "select count(id) from enrolledin inner join course where enrolledin.CourseCode = 
-			course.CourseCode and course.semester='winter'";
-
-			$query_summer = "select count(id) from enrolledin inner join course where enrolledin.CourseCode = 
-			course.CourseCode and course.semester='summer'"; -->
-
 </html>
-
