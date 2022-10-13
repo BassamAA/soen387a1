@@ -91,7 +91,7 @@
 
 			// Connect to MySQL
 			if (!($database = mysqli_connect(
-				"localhost",
+				"127.0.0.1",
 				"root",
 				""
 			)))
@@ -104,52 +104,56 @@
 			// query University database
 			if (!($query_col_names = mysqli_query($database, $query))) {
 				print("Could not execute query! <br />");
-				die(mysqli_error() . "</body></html>");
+				die(mysqli_error($myConnection) . "</body></html>");
 			}
 			if (!($result = mysqli_query($database, $query))) {
 				print("Could not execute query! <br />");
-				die(mysqli_error() . "</body></html>");
+				die(mysqli_error($myConnection) . "</body></html>");
 			}
+			if (mysqli_num_rows($result) == 0) {
+				print("No courses are currently available! <br />");
+				die(mysqli_error($database) . "</body></html>");
+			}
+			else{
+				print("<table>");
 
-			print("<table>");
-
-			$row = mysqli_fetch_assoc($query_col_names);
-			foreach ($row as $key => $value){
-					print("<th>$key</th>");}
-
-					for ( $counter = 0; $row = mysqli_fetch_row( $result );
-					$counter++ )
-					{
-					// build table to display results
-					print( "<tr>" );
-					foreach ( $row as $key => $value ) 
-						print( "<td>$value</td>" );
+				$row = mysqli_fetch_assoc($query_col_names);
+				foreach ($row as $key => $value){
+						print("<th>$key</th>");}
+	
+						for ( $counter = 0; $row = mysqli_fetch_row( $result );
+						$counter++ )
+						{
+						// build table to display results
+						print( "<tr>" );
+						foreach ( $row as $key => $value ) 
+							print( "<td>$value</td>" );
+			
+						print( "</tr>" );
+						}
+	
+					print("</table>");
 		
-					print( "</tr>" );
+					$query = "SELECT CourseCode from Course";
+					if (!($result = mysqli_query($database, $query))) {
+						print("Could not execute query! <br />");
+						die(mysqli_error($myConnection) . "</body></html>");
 					}
-
-			print("</table>");
-
-			$query = "SELECT CourseCode from Course";
-			if (!($result = mysqli_query($database, $query))) {
-				print("Could not execute query! <br />");
-				die(mysqli_error() . "</body></html>");
+		
+					print("<br />");
+		
+					print("<p>Select a course to enroll in:</p>");
+		
+					print("<select name='select'>");
+		
+					print("<option selected='selected'>*</option>");
+					for ( $counter = 0; $row = mysqli_fetch_row( $result );
+							$counter++ ){
+					foreach($row as $key => $value);
+						print("<option>$value</option>");
+				}
+					print("</select>");
 			}
-
-			print("<br />");
-
-			print("<p>Select a course to enroll in:</p>");
-
-			print("<select name='select'>");
-
-			print("<option selected='selected'>*</option>");
-			for ( $counter = 0; $row = mysqli_fetch_row( $result );
-					$counter++ ){
-			foreach($row as $key => $value);
-				print("<option>$value</option>");
-		}
-			print("</select>")
-
 
 			?>		
 

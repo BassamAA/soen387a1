@@ -40,15 +40,15 @@
 	$Email = $_POST["Email"];
 	$PW = $_POST["PW"];
 
-	$DateOfBirth = (int)$birthday_year.'-'.(int)$birthday_month.'-'.(int)$birthday_day;
+	$DateOfBirth = $birthday_year.'-'.$birthday_month.'-'.$birthday_day;
 	// build INSERT query
 
-	$query = "INSERT INTO Student (ID,FirstName,LastName,Address,Email,PhoneNumber,DateOfBirth,PW)
-				VALUES ('$ID','$FirstName','$LastName','$Address','$Email','$PhoneNumber','$DateOfBirth','$PW')";
+	// (`ID`,`FirstName`,`LastName`,`Address`,`Email`,`PhoneNumber`,`DateOfBirth`,`PW`)
+	$query = "INSERT INTO `Student` VALUES ($ID,'$FirstName','$LastName','$Address','$Email',$PhoneNumber,'$DateOfBirth',$PW)";
 
 	// Connect to MySQL
 	if (!($database = mysqli_connect(
-		"localhost",
+		"127.0.0.1",
 		"root",
 		""
 	)))
@@ -59,12 +59,20 @@
 	if (!mysqli_select_db($database, "University"))
 		die("Could not open University database </body></html>");
 
-
+	// print($query);
+	$result = mysqli_query($database, $query);
+	if ( false===$result ) {
+		printf("error: %s\n", mysqli_error($database));
+	}
+	else {
+		echo 'done.';
+	}
 	// query University database
 	if (!($result = mysqli_query($database, $query))) {
 		print("Could not execute query! <br />");
-		die(mysqli_error() . "</body></html>");
-	} else {
+		die(mysqli_error($myConnection) . "</body></html>");
+	} 
+	else {
 		print("You were succesfully registered");
 	};
 	mysqli_close($database);

@@ -29,7 +29,7 @@
 <body>
 	<?php
 	//  extract( $_POST );
-	$CourseID = $_POST["CourseID"];
+	$CourseID = $_POST["CourseCode"];
 	$Title = $_POST["Title"];
 	$Semester = $_POST["Semester"];
 	$Instructor = $_POST["Instructor"];
@@ -43,12 +43,11 @@
 
 	// build INSERT query
 
-	$query = "INSERT INTO Course (CourseID,Title,Semester,Days,Times,Instructor,Room,Start_date, End_date)
-				VALUES ('$CourseID','$Title','$Semester','$Days','$Times','$Instructor','$Room','$Start_date', '$End_date')";
+	$query = "INSERT INTO `Course` VALUES ('$CourseID','$Title','$Semester','$Days','$Times','$Instructor','$Room','$Start_date','$End_date')";
 
 	// Connect to MySQL
 	if (!($database = mysqli_connect(
-		"localhost",
+		"127.0.0.1",
 		"root",
 		""
 	)))
@@ -63,7 +62,7 @@
 	// query University database
 	if (!($result = mysqli_query($database, $query))) {
 		print("Could not execute query! <br />");
-		die(mysqli_error() . "</body></html>");
+		die(mysqli_error($myConnection) . "</body></html>");
 	} else {
 		print("Course successfully created!");
 	};
