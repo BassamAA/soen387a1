@@ -11,10 +11,10 @@ function validateForm() {
     let endDate = document.forms["form"]["End_date"].value;
 
 
-    // // Course Code
-    // let corsecode_array = courseCode.split(" ")
-    // let course_name = corsecode_array[0]
-    // let course_num = corsecode_array[1]
+    // Course Code
+    let corsecode_array = courseCode.split(" ")
+    let course_name = corsecode_array[0]
+    let course_num = corsecode_array[1]
 
     // if (courseCode == "") {
     //     alert("Course Code must be filled out!");
@@ -41,19 +41,19 @@ function validateForm() {
     // }
 
 
-    // Semester
-    let semester_arr = ['fall','winter','summer']
+    // // Semester
+    // let semester_arr = ['fall','winter','summer']
 
-    if (semester == "") {
-        alert("Semester must be filled out!");
-        document.forms["form"]["Semester"].focus();
-        return false;
-    }
-    else if(!semester_arr.includes(semester.toLowerCase())){
-        alert("Semester must be either fall winter or summer!");
-        document.forms["form"]["Semester"].focus();
-        return false;
-    }
+    // if (semester == "") {
+    //     alert("Semester must be filled out!");
+    //     document.forms["form"]["Semester"].focus();
+    //     return false;
+    // }
+    // else if(!semester_arr.includes(semester.toLowerCase())){
+    //     alert("Semester must be either fall winter or summer!");
+    //     document.forms["form"]["Semester"].focus();
+    //     return false;
+    // }
 
 
     // // Instructor 
@@ -90,76 +90,35 @@ function validateForm() {
 
     // startDate : YYYY-MM-DD
     let start = startDate.split('-');
-    let startDay = parseInt(start[2], 10);
-    let startMonth = parseInt(start[1], 10);
-    let startYear = parseInt(start[0], 10);
-    let currYear = new Date().getFullYear();
-    let currDay = new Date().getDate();
-
+    let currdate = new Date().getFullYear();
     if (startDate == "") {
         alert("startDate must be filled out!");
         document.forms["form"]["Start_date"].focus();
         return false;
     }
-    else if(semester.toLowerCase()=='fall' && startMonth!=9){
-        alert("Start month must be September (09) if semester is fall!");
-        document.forms["form"]["Start_date"].focus();
-        return false;
-    }
-    else if(semester.toLowerCase()=='winter' && startMonth!=1){
-        alert("Start month must be January (01) if semester is winter!");
-        document.forms["form"]["Start_date"].focus();
-        return false;
-    }
-    else if(semester.toLowerCase()=='summer' && startMonth!=5){
-        alert("Start month must be May (05) if semester is summer!");
-        document.forms["form"]["Start_date"].focus();
-        return false;
-    }
-    else if(startYear < currYear){
+    else if(start[0] < currdate){
         alert("Year is invalid, must be current year or upcoming year");
         document.forms["form"]["Start_date"].focus();
         return false;
     }
-    else if(startMonth > 12){
-        alert("Invalid Start Month!");
-        document.forms["form"]["Start_date"].focus();
-        return false;
-    }
-    // else if(currDay > (startDay+10) ){
-    //     alert("You cannot register more than 10 days past start date");
-    //     document.forms["form"]["Start_date"].focus();
-    //     return false;
-    // }
 
 
     // endDate
     let end = endDate.split('-');
-    let endDay = parseInt(end[2], 10);
-    let endMonth = parseInt(end[1], 10);
-    let endYear = parseInt(end[0], 10);
-
     if (endDate == "") {
         alert("endDate must be filled out!");
         document.forms["form"]["End_date"].focus();
         return false;
     }
-    else if(endYear < currYear){
+    else if(end[0] < currdate){
         alert("Year is invalid, must be current year or upcoming year");
-        document.forms["form"]["End_date"].focus();
+        document.forms["form"]["Start_date"].focus();
         return false;
     }
-    else if(endYear < startYear){
+    else if(end[0] < start[0]){
         alert("Year is invalid, must be past start year");
-        document.forms["form"]["End_date"].focus();
-        return false;
-    }
-    else if(startMonth > 12){
-        alert("Invalid End Month!");
-        document.forms["form"]["End_date"].focus();
+        document.forms["form"]["Start_date"].focus();
         return false;
     }
 
-    return true;
-
-};
+}

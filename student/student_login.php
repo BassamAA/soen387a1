@@ -28,9 +28,13 @@
 
 <body>
 	<?php
+
 	//  extract( $_POST );
 	$ID = $_POST["ID"];
 	$PW_user_input = $_POST["PW"];
+
+	session_start();
+	$_SESSION["ID"] = $ID;
 
 
 	// build SELECT query

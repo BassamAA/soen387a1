@@ -28,16 +28,18 @@
 
 <body>
 	<?php
-	//  extract( $_POST );
 	$ID = $_POST["ID"];
 	$FirstName = $_POST["FirstName"];
 	$LastName = $_POST["LastName"];
 	$Address = $_POST["Address"];
 	$PhoneNumber = $_POST["PhoneNumber"];
-	$DateOfBirth = $_POST["DateOfBirth"];
+	// $DateOfBirth = $_POST["DateOfBirth"];
+	$birthday_day = $_POST["BirthdayDay"];
+	$birthday_month = $_POST["BirthdayMonth"];
+	$birthday_year = $_POST["BirthdayYear"];
 	$Email = $_POST["Email"];
 	$PW = $_POST["PW"];
-
+	$DateOfBirth = (int)$birthday_year.'-'.(int)$birthday_month.'-'.(int)$birthday_day;
 
 	// build INSERT query
 
@@ -48,7 +50,7 @@
 	if (!($database = mysqli_connect(
 		"localhost",
 		"root",
-		""
+		"wrgWM3K52n8fk3mC"
 	)))
 		die("Could not connect to database </body></html>");
 
