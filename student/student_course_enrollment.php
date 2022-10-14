@@ -113,7 +113,7 @@
 			if (!($result_col_names = mysqli_query($database, $query))) {
 				print("Could not execute query! <br />");
 				die(mysqli_error() . "</body></html>");
-			}			
+			}
 			if (!($result = mysqli_query($database, $query))) {
 				print("Could not execute query! <br />");
 				die(mysqli_error() . "</body></html>");
@@ -163,7 +163,6 @@
 				$query = "select coursecode from course where CourseCode not in (select coursecode from enrolledin where id= $ID)";
 
 
-
 				if (!($result = mysqli_query($database, $query))) {
 					print("Could not execute query! <br />");
 					die(mysqli_error() . "</body></html>");
@@ -177,14 +176,18 @@
 				print("<select name='select'>");
 
 				print("<option selected='selected'>*</option>");
-				for ($counter = 0;$row = mysqli_fetch_row($result);$counter++
+				for (
+					$counter = 0;
+					$row = mysqli_fetch_row($result);
+					$counter++
 				) {
 					foreach ($row as $key => $value);
 					print("<option>$value</option>");
 				}
 				print("</select>");
-				print("<input class='button' type='submit' value='Enroll'/>");
-				print("</form>");
+				print("<input class='button' type='submit' name='btnSubmit' value='Save Changes'/>");
+				// print("<input class='button' type='submit' name='btnDelete' value='Enroll'/>");
+				// print("</form>");
 			}
 
 
@@ -193,9 +196,9 @@
 			print("<h2  class='subheading'>Courses Currently Enrolled In</h2>");
 
 
-							// Checking if there are courses in the database
+			// Checking if there are courses in the database
 			if (mysqli_num_rows($enrolled_result) == 0) {
-				echo "there are no courses available.";
+				echo "You are not enrolled in any course.";
 			} else {
 
 				// print("<br />");
@@ -219,10 +222,60 @@
 
 					print("</tr>");
 				}
-			}
 
 				print("</table>");
 
+
+
+
+
+
+
+			// query to get the coursecodes list for the dropdown select menu
+			// $query = "select coursecode from course where CourseCode not in (select coursecode from enrolledin where id= $ID)";
+			$query = "SELECT c.coursecode FROM COURSE c INNER JOIN EnrolledIn e on c.CourseCode = e.CourseCode WHERE e.ID= $ID";
+
+
+			if (!($result = mysqli_query($database, $query))) {
+				print("Could not execute query! <br />");
+				die(mysqli_error() . "</body></html>");
+			}
+
+			print("<br />");
+			print("<form method='post' action='enrollment_validation.php'>");
+
+			print("<p>select a course to drop:</p>");
+
+			print("<select name='select'>");
+
+			print("<option selected='selected'>*</option>");
+			for (
+				$counter = 0;
+				$row = mysqli_fetch_row($result);
+				$counter++
+			) {
+				foreach ($row as $key => $value);
+				print("<option>$value</option>");
+			}
+			print("</select>");
+			print("<input class='button' type='submit' name='btnDelete' value='Delete'/>");
+			// print("<input class='button' type='submit' name='btnDelete' value='Enroll'/>");
+			print("</form>");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			}
 
 
 			?>
@@ -241,4 +294,3 @@
 			course.CourseCode and course.semester='summer'"; -->
 
 </html>
-
