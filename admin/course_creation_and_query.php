@@ -28,22 +28,25 @@
 
 <body>
 	<?php
-	//  extract( $_POST );
-	$CourseID = $_POST["CourseCode"];
-	$Title = $_POST["Title"];
-	$Semester = $_POST["Semester"];
-	$Instructor = $_POST["Instructor"];
-	$Room = $_POST["Room"];
-	$Days = $_POST["Days"];
-	$Times = $_POST["Times"];
-	$Start_date = $_POST["Start_date"];
-	$End_date = $_POST["End_date"];
 
+    $InputCourseCode_or_ID = $_POST['input'];
+    $Select = $_POST['select'];
+	
+	print($InputCourseCode_or_ID);
 
+	if($Select == 'List of courses taken by a student'){
+		$query = "SELECT *  FROM COURSE c INNER JOIN EnrolledIn e on c.CourseCode = e.CourseCode
+		WHERE e.ID = $InputCourseCode_or_ID";
+	}else
 
-	// build INSERT query
+	if($Select == 'List of students in a course'){
+		$query = "SELECT * FROM Student s INNER JOIN EnrolledIn e on s.ID = e.ID
+		WHERE e.CourseCode = '$InputCourseCode_or_ID'";
+	}
 
-	$query = "INSERT INTO `Course` VALUES ('$CourseID','$Title','$Semester','$Days','$Times','$Instructor','$Room','$Start_date','$End_date')";
+	
+
+// Student.FirstName, Student.LastName, Student.ID
 
 	// Connect to MySQL
 	if (!($database = mysqli_connect(
@@ -53,19 +56,44 @@
 	)))
 		die("Could not connect to database </body></html>");
 
-
 	// open University database
 	if (!mysqli_select_db($database, "University"))
 		die("Could not open University database </body></html>");
 
 
 	// query University database
-	if (!($result = mysqli_query($database, $query))) {
-		print("Could not execute query! <br />");
-		die(mysqli_error($myConnection) . "</body></html>");
-	} else {
-		print("Course successfully created!");
-	};
+    if (!($result = mysqli_query($database, $query))) {
+        print("Could not execute query! <br />");
+        die(mysqli_error($database) . "</body></html>");
+    }
+    else{
+        print("<table>");
+                $row = mysqli_fetch_assoc($result);
+                foreach ($row as $key => $value){
+					print("<th>$key</th>");
+				}
+
+				for ( $counter = 0; $row = mysqli_fetch_row($result); $counter++ )
+				{
+					// build table to display results
+					print( "<tr>" );
+					foreach ( $row as $key => $value ) 
+						print( "<td>$value</td>" );
+
+					print( "</tr>" );
+				}
+
+			print("</table>");
+
+    }
+
+
+
+
+
+
+
+
 	mysqli_close($database);
 	?>
 	<!-- end PHP script -->
