@@ -68,7 +68,7 @@
 	if ($pw_in_db == $PW_admin_input) {
 		// password matches
 		// redirect to course creation and query page
-		// header("location:course_creation_and_query.htm");exit;
+		// header("location:course_creation_and_query.php");exit;
 		echo "<script type='text/javascript'>window.top.location='course_creation_and_query.htm';</script>"; exit;
 	} else {
 		print("Invalid password, go back and try again!");
