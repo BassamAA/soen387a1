@@ -90,13 +90,21 @@
 			session_start();
 			$ID = $_SESSION["ID"];
 			$CourseCode_selected = $_POST['select'];
+			date_default_timezone_set('US/Pacific');
+
+			$curr_day = date('Y-m-d');
+
+			$curr_day = datetime::createfromformat('Y-m-d',$curr_day);
+
+
+			$startdate_query = "SELECT c.Start_date FROM COURSE c WHERE c.CourseCode= '$CourseCode_selected'";
 
 
 			// Connect to MySQL
 			if (!($database = mysqli_connect(
 				"localhost",
 				"root",
-				""
+				"wrgWM3K52n8fk3mC"
 			)))
 				die("Could not connect to database </body></html>");
 
@@ -107,42 +115,67 @@
 
 
 
+			if (!($result = mysqli_query($database, $startdate_query))) {
+				print("Could not execute query! <br />");
+				die(mysqli_error() . "</body></html>");
+			}
+			$result = mysqli_fetch_assoc($result);
+			foreach ($result as $value)
+				$start_date = $value;
+
+	
+			$start_date = datetime::createfromformat('Y-m-d',$start_date);
+
+
+			$interval = $curr_day->diff($start_date)->days;
+
+			
+
+			if ($interval > 10) {
+
+				print("Sorry. Can't enroll for a class 10 days after start date");
+				exit();
+			} else {
+
 			// returns the number of courses that a student is already enrolled in for the semester of the selected course
 			$query = "select count(course.coursecode) from enrolledin join course on enrolledin.coursecode = course.coursecode 
 			where semester = (select semester from course where coursecode='$CourseCode_selected')
 			and id = $ID";
 
 
-			// query University database
-			if (!($result = mysqli_query($database, $query))) {
-				print("Could not execute query! <br />");
-				die(mysqli_error() . "</body></html>");
-			}
-			$result = mysqli_fetch_assoc($result);
-			foreach ($result as $value)
-				$count = (int)$value;
-
-
-			// returns the semester from the course selected
-			$semester_query = "select semester from course where coursecode = '$CourseCode_selected'";
-			$result = mysqli_query($database, $semester_query);
-			while ($row = mysqli_fetch_array($result)) {
-				$semester = $row['semester'];
-			}
-
-			// check if enrolled in more than 5
-			// 4 since starts at 0
-			if ($count > 4) {
-				print("Sorry, you already have enrolled in 5 courses for the $semester semester");
-				exit();
-			} else {
-				$query2 = "insert into EnrolledIn values ('$CourseCode_selected', $ID);";
-				$count += 1;
-				print("Successfully enrolled in $CourseCode_selected! <br/>");
-				print("You have $count course(s) for the $semester semester.");
-				if (!($result = mysqli_query($database, $query2))) {
+				// query University database
+				if (!($result = mysqli_query($database, $query))) {
 					print("Could not execute query! <br />");
 					die(mysqli_error() . "</body></html>");
+				}
+				$result = mysqli_fetch_assoc($result);
+				foreach ($result as $value)
+					$count = (int)$value;
+
+
+				// returns the semester from the course selected
+				$semester_query = "select semester from course where coursecode = '$CourseCode_selected'";
+				$result = mysqli_query($database, $semester_query);
+				while ($row = mysqli_fetch_array($result)) {
+					$semester = $row['semester'];
+				}
+
+				// check if enrolled in more than 5
+				// 4 since starts at 0
+				if ($count > 4) {
+					print("Sorry, you already have enrolled in 5 courses for the $semester semester");
+					exit();
+				} else {
+					$query2 = "insert into EnrolledIn values ('$CourseCode_selected', $ID);";
+
+					if (!($result = mysqli_query($database, $query2))) {
+						print("Could not execute query! <br />");
+						die(mysqli_error() . "</body></html>");
+					} else {
+						$count += 1;
+						print("Successfully enrolled in $CourseCode_selected! <br/>");
+						print("You have $count course(s) for the $semester semester.");
+					}
 				}
 			}
 

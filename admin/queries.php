@@ -43,14 +43,19 @@
 		// WHERE e.ID = $InputCourseCode_or_ID";
 
 		$query = "SELECT c.CourseCode, c.title, c.semester, c.days, c.times, c.Instructor, c.room,
-		c.Start_date, c.end_date, e.id FROM COURSE c INNER JOIN EnrolledIn e on c.CourseCode = e.CourseCode
+		c.Start_date, c.end_date FROM COURSE c INNER JOIN EnrolledIn e on c.CourseCode = e.CourseCode
 		WHERE e.ID = $InputCourseCode_or_ID";
+
+		$query2 = "SELECT FirstName,LastName,ID FROM STUDENT s WHERE s.ID = $InputCourseCode_or_ID";
+
 	}else
 	
-	// input is coursecode
-	if($Select == 'List of students in a course'){
-		$query = "SELECT * FROM Student s INNER JOIN EnrolledIn e on s.ID = e.ID
-    WHERE e.CourseCode = '$InputCourseCode_or_ID'";
+		// input is coursecode
+		if($Select == 'List of students in a course'){
+			$query = "SELECT * FROM Student s INNER JOIN EnrolledIn e on s.ID = e.ID WHERE e.CourseCode = '$InputCourseCode_or_ID'";
+
+			$query2 = "SELECT * FROM COURSE c WHERE c.CourseCode = $InputCourseCode_or_ID";
+
 	}
 
 	
@@ -93,6 +98,13 @@
 				die(mysqli_error() . "</body></html>");
 			}
 
+
+			if (!($result_title = mysqli_query($database, $query2))) {
+				print("Could not execute query! <br />");
+				die(mysqli_error() . "</body></html>");
+			}
+
+
 			// Checking if there are courses in the database
 			if (mysqli_num_rows($result) == 0) {
 				echo "there are no courses available.";
@@ -126,8 +138,6 @@
 		}
     }
 }
-
-
 
 
 
