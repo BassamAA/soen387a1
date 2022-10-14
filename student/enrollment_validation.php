@@ -105,15 +105,13 @@
 			if (!($database = mysqli_connect(
 				"localhost",
 				"root",
-				"wrgWM3K52n8fk3mC"
+				""
 			)))
 				die("Could not connect to database </body></html>");
 
 			// open University database
 			if (!mysqli_select_db($database, "University"))
 				die("Could not open products database </body></html>");
-
-
 
 
 

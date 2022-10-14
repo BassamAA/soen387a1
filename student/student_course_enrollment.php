@@ -96,7 +96,6 @@ if(!isset($_SESSION['ID'])) {
 		<div class="div_form">
 
 			<?php
-			session_start();
 			$ID = $_SESSION["ID"];
 
 
@@ -109,7 +108,7 @@ if(!isset($_SESSION['ID'])) {
 			if (!($database = mysqli_connect(
 				"localhost",
 				"root",
-				"wrgWM3K52n8fk3mC"
+				""
 			)))
 				die("Could not connect to database </body></html>");
 
