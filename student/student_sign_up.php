@@ -40,6 +40,7 @@
 	$Email = $_POST["Email"];
 	$PW = $_POST["PW"];
 	$DateOfBirth = $birthday_year . '-' . $birthday_month . '-' . $birthday_day;
+	$state ="FALSE";
 
 	// build SELECT query
 	$query = "SELECT ID from Student";
@@ -48,7 +49,7 @@
 	if (!($database = mysqli_connect(
 		"localhost",
 		"root",
-		"wrgWM3K52n8fk3mC"
+		""
 	)))
 		die("Could not connect to database </body></html>");
 
@@ -60,7 +61,6 @@
 	$result = mysqli_query($database, $query);
 	$result = mysqli_fetch_assoc($result);
 
-	$state = NULL;
 	foreach ($result as $value)
 		if ($ID == (int)$value) {
 			$state = "TRUE";

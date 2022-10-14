@@ -1,3 +1,5 @@
+<!-- PHP file used to check login password -->
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -30,6 +32,10 @@
 	$EmploymentID = $_POST["EmploymentID"];
 	$PW_admin_input = $_POST["PW"];
 
+	session_destroy();
+	session_start();
+	$_SESSION["EmploymentID"] = $EmploymentID;
+
 
 	// build SELECT query
 	$query = "SELECT PW from Administrator where EmploymentID='$EmploymentID'";
@@ -38,7 +44,7 @@
 	if (!($database = mysqli_connect(
 		"localhost",
 		"root",
-		"wrgWM3K52n8fk3mC"
+		""
 	)))
 		die("Could not connect to database </body></html>");
 
@@ -47,7 +53,13 @@
 	if (!mysqli_select_db($database, "University"))
 		die("Could not open University database </body></html>");
 	
-	$result = mysqli_query($database, $query);
+	
+	if (!($result = mysqli_query($database, $query))) {
+		print("Invalid EmploymentID<br />");
+		die(mysqli_error() . "</body></html>");
+	}
+
+
 	$result = mysqli_fetch_assoc($result);
 	foreach ($result as $value)
 		$pw_in_db = (int)$value;
@@ -55,12 +67,14 @@
 
 	if ($pw_in_db == $PW_admin_input) {
 		// password matches
-		// redirect to course enrollment page
+		// redirect to course creation and query page
 		// header("location:course_creation_and_query.htm");exit;
 		echo "<script type='text/javascript'>window.top.location='course_creation_and_query.htm';</script>"; exit;
 	} else {
 		print("Invalid password, go back and try again!");
 	};
+	mysqli_close($database);
+
 	?>
 </body>
 

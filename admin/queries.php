@@ -1,4 +1,4 @@
-<!-- PHP file used to create new student -->
+<!-- PHP file used to create display queries to admin user -->
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -39,8 +39,6 @@
 
 	// input is ID of student
 	if($Select == 'List of courses taken by a student'){
-		// $query = "SELECT *  FROM COURSE c INNER JOIN EnrolledIn e on c.CourseCode = e.CourseCode
-		// WHERE e.ID = $InputCourseCode_or_ID";
 
 		$query = "SELECT c.CourseCode, c.title, c.semester, c.days, c.times, c.Instructor, c.room,
 		c.Start_date, c.end_date FROM COURSE c INNER JOIN EnrolledIn e on c.CourseCode = e.CourseCode
@@ -110,8 +108,6 @@
 				echo "there are no courses available.";
 			} else {
 
-				// print("<br />");
-
 				print("<table>");
 
 				$row = mysqli_fetch_assoc($result_col_names);
@@ -138,11 +134,6 @@
 		}
     }
 }
-
-
-
-
-
 
 	mysqli_close($database);
 	?>

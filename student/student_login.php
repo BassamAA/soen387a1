@@ -29,10 +29,10 @@
 <body>
 	<?php
 
-	//  extract( $_POST );
 	$ID = $_POST["ID"];
 	$PW_user_input = $_POST["PW"];
 
+	session_destroy();
 	session_start();
 	$_SESSION["ID"] = $ID;
 
@@ -44,7 +44,7 @@
 	if (!($database = mysqli_connect(
 		"localhost",
 		"root",
-		"wrgWM3K52n8fk3mC"
+		""
 	)))
 		die("Could not connect to database </body></html>");
 

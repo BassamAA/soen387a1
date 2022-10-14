@@ -1,7 +1,5 @@
 <!-- php file to create new administrator -->
 
-<!-- PHP file used to create new student -->
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -30,7 +28,6 @@
 
 <body>
 	<?php
-	//  extract( $_POST );
 	$EmploymentID = $_POST["EmploymentID"];
 	$FirstName = $_POST["FirstName"];
 	$LastName = $_POST["LastName"];
@@ -41,11 +38,8 @@
 	$birthday_year = $_POST["BirthdayYear"];
 	$Email = $_POST["Email"];
 	$PW = $_POST["PW"];
-
-	// $DateOfBirth = (int)$birthday_year.'-'.(int)$birthday_month.'-'.(int)$birthday_day;
 	$DateOfBirth = $birthday_year . '-' . $birthday_month . '-' . $birthday_day;
-
-
+	$state == "FALSE";
 
 
 	// build SELECT query
@@ -55,7 +49,7 @@
 	if (!($database = mysqli_connect(
 		"localhost",
 		"root",
-		"wrgWM3K52n8fk3mC"
+		""
 	)))
 		die("Could not connect to database </body></html>");
 
@@ -72,15 +66,10 @@
 			$state = "TRUE";
 		};
 
-
-
 	if ($state == "FALSE") {
-
-
 		// build INSERT query
 		$query2 = "INSERT INTO Administrator (EmploymentID, FirstName, LastName, Address, Email, PhoneNumber, DateOfBirth, PW)
 				VALUES ('$EmploymentID','$FirstName','$LastName','$Address','$Email','$PhoneNumber','$DateOfBirth', '$PW')";
-
 
 		// query University database
 		if (!($result = mysqli_query($database, $query2))) {

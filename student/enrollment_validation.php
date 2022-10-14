@@ -1,3 +1,5 @@
+<!-- PHP file used to check if student can enroll in/drop a course -->
+
 <!DOCTYPE html">
 <html>
 

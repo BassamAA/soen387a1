@@ -15,12 +15,12 @@ function validateForm() {
     // validating the user ID
     // must be 8 digits long
     // html input type number already validates for numbers and not letters and special characters
-    if (Id == "") {
+    if (EmploymentID == "") {
         alert("Employment ID must be filled out!");
         document.forms["form"]["EmploymentID"].focus();
         return false;
     }
-    else if (Id.length != 8) {
+    else if (EmploymentID.length != 8) {
         alert("Employment ID must be of length 8");
         document.forms["form"]["EmploymentID"].focus();
         return false;
@@ -89,7 +89,7 @@ function validateForm() {
     }
     else if (!regEmail.test(Email)) {
         alert("Invalid email address!");
-        document.form1.text1.focus();
+        document.forms["form"]["Email"].focus();
         return false;
     }
 

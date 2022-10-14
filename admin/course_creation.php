@@ -1,4 +1,4 @@
-<!-- PHP file used to create new student -->
+<!-- PHP file used to create new course -->
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -28,7 +28,6 @@
 
 <body>
 	<?php
-	//  extract( $_POST );
 	$CourseCode = $_POST["CourseCode"];
 	$Title = $_POST["Title"];
 	$Semester = $_POST["Semester"];
@@ -49,7 +48,7 @@
 	if (!($database = mysqli_connect(
 		"localhost",
 		"root",
-		"wrgWM3K52n8fk3mC"
+		""
 	)))
 		die("Could not connect to database </body></html>");
 

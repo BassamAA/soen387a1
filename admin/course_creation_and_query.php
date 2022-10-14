@@ -1,3 +1,11 @@
+<?php
+session_start();
+if(!isset($_SESSION['EmploymentID'])) {
+    header('Location: admin_login.htm');
+    exit();
+}
+
+?>
 <!DOCTYPE html">
 
 <html>
@@ -150,16 +158,6 @@
 
     
         </div>
-
-        <!-- <div class="sign_in">
-            <h2>Already have a Student Account?</h2>
-            <input class="button" type="submit" value="Sign In" onclick="myFunction()">
-            <script>
-                function myFunction() {
-                    window.location.href = "./student_signIn.htm";
-                }
-            </script>
-        </div> -->
     </div>
 </body>
 

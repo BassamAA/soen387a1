@@ -88,7 +88,7 @@ function validateForm() {
     }
     else if (!regEmail.test(Email)) {
         alert("Invalid email address!");
-        document.form1.text1.focus();
+        document.forms["form"]["Email"].focus();
         return false;
     }
 
