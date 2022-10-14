@@ -92,6 +92,10 @@
 			session_start();
 			$ID = $_SESSION["ID"];
 			$CourseCode_selected = $_POST['select'];
+			if($CourseCode_selected == "*"){
+				print("Please select a course from the dropdown menu");
+				exit();
+			}
 			date_default_timezone_set('US/Pacific');
 
 			$curr_day = date('Y-m-d');

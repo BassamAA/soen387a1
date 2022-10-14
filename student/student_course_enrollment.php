@@ -194,7 +194,7 @@ if(!isset($_SESSION['ID'])) {
 				print("</select>");
 				print("<input class='button' type='submit' name='btnSubmit' value='Save Changes'/>");
 				// print("<input class='button' type='submit' name='btnDelete' value='Enroll'/>");
-				// print("</form>");
+				print("</form>");
 			}
 
 
