@@ -32,7 +32,7 @@
 	$ID = $_POST["ID"];
 	$PW_user_input = $_POST["PW"];
 
-	session_destroy();
+	session_unset();
 	session_start();
 	$_SESSION["ID"] = $ID;
 

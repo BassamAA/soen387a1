@@ -32,7 +32,7 @@
 	$EmploymentID = $_POST["EmploymentID"];
 	$PW_admin_input = $_POST["PW"];
 
-	session_destroy();
+	session_unset();
 	session_start();
 	$_SESSION["EmploymentID"] = $EmploymentID;
 
