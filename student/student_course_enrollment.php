@@ -108,7 +108,7 @@ if(!isset($_SESSION['ID'])) {
 			if (!($database = mysqli_connect(
 				"localhost",
 				"root",
-				""
+				"wrgWM3K52n8fk3mC"
 			)))
 				die("Could not connect to database </body></html>");
 
@@ -168,8 +168,6 @@ if(!isset($_SESSION['ID'])) {
 
 				// query to get the coursecodes list for the dropdown select menu
 				$query = "select coursecode from course where CourseCode not in (select coursecode from enrolledin where id= $ID)";
-
-
 				if (!($result = mysqli_query($database, $query))) {
 					print("Could not execute query! <br />");
 					die(mysqli_error() . "</body></html>");
