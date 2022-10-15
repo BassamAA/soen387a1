@@ -199,13 +199,9 @@
 				}
 
 
-				if ($curr_semester == $semester) {
-
-
 					// check the 10 day condition
 					$interval = $curr_date->diff($start_date)->days;
-					// print("interval:");
-					// print($interval);
+
 					if ($interval >= 10 && $start_date < $curr_date) {
 						print("Sorry. Can't enroll for a class 10 days after start date");
 						exit();
@@ -221,18 +217,7 @@
 							print("You have $count course(s) for the $semester semester.");
 						}
 					}
-				} else {
-					// enroll
-					$enroll_query = "insert into EnrolledIn values ('$CourseCode_selected', $ID);";
-					if (!($result = mysqli_query($database, $enroll_query))) {
-						print("Could not execute query! <br />");
-						die(mysqli_error() . "</body></html>");
-					} else {
-						$count += 1;
-						print("Successfully enrolled in $CourseCode_selected! <br/>");
-						print("You have $count course(s) for the $semester semester.");
-					}
-				}
+
 			} else
 			if (isset($_POST["btnDelete"])) {
 
