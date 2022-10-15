@@ -96,6 +96,8 @@ function validateForm() {
     let currYear = new Date().getFullYear();
     let currDay = new Date().getDate();
 
+    document.write(semester);
+
     if (startDate == "") {
         alert("startDate must be filled out!");
         document.forms["form"]["Start_date"].focus();

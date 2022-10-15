@@ -204,7 +204,9 @@
 
 					// check the 10 day condition
 					$interval = $curr_date->diff($start_date)->days;
-					if ($interval > 10) {
+					// print("interval:");
+					// print($interval);
+					if ($interval >= 10 && $start_date < $curr_date) {
 						print("Sorry. Can't enroll for a class 10 days after start date");
 						exit();
 					} else {

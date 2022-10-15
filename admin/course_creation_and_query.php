@@ -141,7 +141,7 @@ if(!isset($_SESSION['EmploymentID'])) {
             <h2 class>Admin Query Forms:</h2>
         </div>
         <div class="div_form2">
-            <form method="post" action="queries.php">
+            <form name='form2' method="post" action="queries.php">
                 <p>Select a field to display:
                     <select name="select">
                         <option selected="selected">*</option>

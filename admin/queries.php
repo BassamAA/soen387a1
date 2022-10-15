@@ -44,15 +44,14 @@
 		c.Start_date, c.end_date FROM COURSE c INNER JOIN EnrolledIn e on c.CourseCode = e.CourseCode
 		WHERE e.ID = $InputCourseCode_or_ID";
 
-		$query2 = "SELECT FirstName,LastName,ID FROM STUDENT s WHERE s.ID = $InputCourseCode_or_ID";
+		print("<h3>Courses currently taken by Student ID $InputCourseCode_or_ID:</> <br/>");
 
 	}else
-	
 		// input is coursecode
 		if($Select == 'List of students in a course'){
-			$query = "SELECT * FROM Student s INNER JOIN EnrolledIn e on s.ID = e.ID WHERE e.CourseCode = '$InputCourseCode_or_ID'";
+			$query = "SELECT s.id, s.firstname, s.lastname, s.address, s.email, s.phonenumber, s.dateofbirth FROM Student s INNER JOIN EnrolledIn e on s.ID = e.ID WHERE e.CourseCode = '$InputCourseCode_or_ID'";
 
-			$query2 = "SELECT * FROM COURSE c WHERE c.CourseCode = $InputCourseCode_or_ID";
+			print("<h3>Students enrolled in $InputCourseCode_or_ID:</> <br/>");
 
 	}
 
@@ -62,7 +61,7 @@
 	if (!($database = mysqli_connect(
 		"localhost",
 		"root",
-		"wrgWM3K52n8fk3mC"
+		""
 	)))
 		die("Could not connect to database </body></html>");
 
@@ -97,10 +96,10 @@
 			}
 
 
-			if (!($result_title = mysqli_query($database, $query2))) {
-				print("Could not execute query! <br />");
-				die(mysqli_error() . "</body></html>");
-			}
+			// if (!($result_title = mysqli_query($database, $query2))) {
+			// 	print("Could not execute query! <br />");
+			// 	die(mysqli_error() . "</body></html>");
+			// }
 
 
 			// Checking if there are courses in the database
