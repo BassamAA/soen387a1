@@ -193,7 +193,7 @@
 
 			if (isset($_POST["btnSubmit"])) {
 
-				if ($count >= 4) {
+				if ($count >= 5) {
 					print("Sorry, you already have enrolled in 5 courses for the $semester semester");
 					exit();
 				}

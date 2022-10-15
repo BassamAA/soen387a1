@@ -49,7 +49,7 @@
 	if (!($database = mysqli_connect(
 		"localhost",
 		"root",
-		""
+		"wrgWM3K52n8fk3mC"
 	)))
 		die("Could not connect to database </body></html>");
 
@@ -59,13 +59,14 @@
 		die("Could not open University database </body></html>");
 
 	$result = mysqli_query($database, $query);
+	
+	if(mysqli_num_rows($result) != 0){
 	$result = mysqli_fetch_assoc($result);
-
 	foreach ($result as $value)
 		if ($ID == (int)$value) {
 			$state = "TRUE";
 		};
-
+	}
 
 	if ($state == "FALSE") {
 

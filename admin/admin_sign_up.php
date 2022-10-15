@@ -39,7 +39,7 @@
 	$Email = $_POST["Email"];
 	$PW = $_POST["PW"];
 	$DateOfBirth = $birthday_year . '-' . $birthday_month . '-' . $birthday_day;
-	$state == "FALSE";
+	$state = "FALSE";
 
 
 	// build SELECT query
@@ -59,12 +59,15 @@
 		die("Could not open University database </body></html>");
 
 	$result = mysqli_query($database, $query);
-	$result = mysqli_fetch_assoc($result);
 
-	foreach ($result as $value)
+	if(mysqli_num_rows($result) != 0){
+		$result = mysqli_fetch_assoc($result);
+		foreach ($result as $value)
 		if ($EmploymentID == (int)$value) {
 			$state = "TRUE";
 		};
+	}
+
 
 	if ($state == "FALSE") {
 		// build INSERT query

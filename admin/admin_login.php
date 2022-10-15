@@ -59,17 +59,20 @@
 		die(mysqli_error() . "</body></html>");
 	}
 
+	$pw_in_db = null;
+	if(mysqli_num_rows($result) != 0){
+		$result = mysqli_fetch_assoc($result);
+		foreach ($result as $value)
+			$pw_in_db = (int)$value;
+	}
 
-	$result = mysqli_fetch_assoc($result);
-	foreach ($result as $value)
-		$pw_in_db = (int)$value;
 
 
 	if ($pw_in_db == $PW_admin_input) {
 		// password matches
 		// redirect to course creation and query page
 		// header("location:course_creation_and_query.php");exit;
-		echo "<script type='text/javascript'>window.top.location='course_creation_and_query.htm';</script>"; exit;
+		echo "<script type='text/javascript'>window.top.location='course_creation_and_query.php';</script>"; exit;
 	} else {
 		print("Invalid password, go back and try again!");
 	};
