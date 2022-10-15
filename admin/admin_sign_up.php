@@ -39,7 +39,7 @@
 	$Email = $_POST["Email"];
 	$PW = $_POST["PW"];
 	$DateOfBirth = $birthday_year . '-' . $birthday_month . '-' . $birthday_day;
-	$state == "FALSE";
+	$state = "FALSE";
 
 
 	// build SELECT query
